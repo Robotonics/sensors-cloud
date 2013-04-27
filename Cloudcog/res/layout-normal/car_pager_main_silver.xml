@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.sorin.cloudcog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <com.viewpagerindicator.TitlePageIndicator
+        android:id="@+id/indicator_silver"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dip"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:footerColor="#0796FC"
+        app:footerIndicatorHeight="6dp"
+        app:footerIndicatorStyle="underline"
+        app:footerLineHeight="2dp"
+        app:selectedBold="true"
+        app:selectedColor="#0796FC" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager_silver"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ToggleButton
+            android:id="@+id/silver_toggleButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="47dp"
+            android:layout_y="413dp"
+            android:text="@string/getdata" />
+
+        <Button
+            android:id="@+id/silver_erasecode_button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="122dp"
+            android:layout_y="413dp"
+            android:text="@string/erasecodes" />
+    </LinearLayout>
+
+</LinearLayout>

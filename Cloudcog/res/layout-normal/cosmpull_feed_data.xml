@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mtr="http://schemas.android.com/apk/res/pachube.andorid"
+    android:id="@+id/widget31"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_main"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/widget35"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/background_main"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/widget38"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="COSM Feed ID:"
+            android:textColor="#F8F9FB"
+            android:textSize="20sp"
+            android:textStyle="bold" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/widget39"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID"
+            android:textColor="#F8F9FB"
+            android:textSize="17sp"
+            android:textStyle="bold" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/widget40"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:text="Description:"
+            android:textColor="#F8F9FB"
+            android:textSize="20sp"
+            android:textStyle="bold" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/widget41"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0px"
+            android:layout_marginTop="0px"
+            android:text="description"
+            android:textColor="#F8F9FB"
+            android:textSize="17sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/widget42"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10px"
+            android:text="Domain:"
+            android:textColor="#F8F9FB"
+            android:textSize="20sp"
+            android:textStyle="bold" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/widget43"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="domain"
+            android:textColor="#F8F9FB"
+            android:textSize="17sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/widget44"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10px"
+            android:text="Current Status:"
+            android:textColor="#F8F9FB"
+            android:textSize="20sp"
+            android:textStyle="bold" >
+        </TextView>
+
+        <ImageView
+            android:id="@+id/widget50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </ImageView>
+
+        <TextView
+            android:id="@+id/widget46"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10px"
+            android:text="Last Updated:"
+            android:textColor="#F8F9FB"
+            android:textSize="20sp"
+            android:textStyle="bold" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/widget47"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="date"
+            android:textColor="#F8F9FB"
+            android:textSize="17sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/widget48"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:text="Feed Data Streams:"
+            android:textColor="#F8F9FB"
+            android:textSize="20sp"
+            android:textStyle="bold" >
+        </TextView>
+
+        <LinearLayout
+            android:id="@+id/widget135"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/background_main"
+            android:orientation="vertical" >
+
+            <ListView
+                android:id="@+id/listview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                
+                
+                
+                 >
+            </ListView>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

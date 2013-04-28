@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cosmpull"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_main" >
+
+    <TextView
+        android:id="@+id/txtview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2px"
+        android:layout_marginTop="2px"
+        android:text="  Cosm Feed ID:"
+        android:textColor="#F8F9FB"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="sans" >
+    </TextView>
+
+    <EditText
+        android:id="@+id/edtxtfeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10px"
+        android:layout_marginTop="2px"
+        android:inputType="number"
+        android:text=""
+        android:textSize="18sp" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/txtview2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2px"
+        android:layout_marginTop="2px"
+        android:text="  Username:"
+        android:textColor="#F8F9FB"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="sans" >
+    </TextView>
+
+    <EditText
+        android:id="@+id/edtxtusrname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2px"
+        android:layout_marginTop="2px"
+        android:text=""
+        android:textSize="18sp" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/txtview3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5px"
+        android:layout_marginTop="5px"
+        android:text="  Password:"
+        android:textColor="#F8F9FB"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="sans" >
+    </TextView>
+
+    <EditText
+        android:id="@+id/edtxtpasswd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:password="true"
+        android:text=""
+        android:textSize="18sp" >
+    </EditText>
+
+    <Button
+        android:id="@+id/btnlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pull data from Cosm"
+        android:textColor="#F8F9FB"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+</TableLayout>

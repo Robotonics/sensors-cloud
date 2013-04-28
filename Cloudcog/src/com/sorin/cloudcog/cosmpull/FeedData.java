@@ -84,7 +84,7 @@ public class FeedData extends Activity {
 				Gauge gauge = new Gauge(this);
 
 				LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(
-						LinearLayout.LayoutParams.FILL_PARENT,
+						LinearLayout.LayoutParams.MATCH_PARENT,
 						LinearLayout.LayoutParams.WRAP_CONTENT);
 
 				gauge.scaleUpperTitle = "Datastream #" + DID[i];

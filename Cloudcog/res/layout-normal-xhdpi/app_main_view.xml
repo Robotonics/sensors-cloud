@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainvielayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="4.0" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:weightSum="1.0" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="#6E6E6E"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/btncloudpull"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background_main"
+                android:src="@drawable/logo_cloud_download" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="#6E6E6E"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/btncloudpush"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background_main"
+                android:src="@drawable/logo_cloud_upload" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:weightSum="1.0" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="#6E6E6E"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/btncarsensors"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background_main"
+                android:src="@drawable/logo_car" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="#6E6E6E"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/btnphonesensors"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background_main"
+                android:src="@drawable/logo_phone" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:weightSum="1.0" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="#6E6E6E"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/btnioio"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background_main"
+                android:src="@drawable/logo_ioio" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="#6E6E6E"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/btnopenxc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background_main"
+                android:src="@drawable/logo_openxc" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:weightSum="1.0" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="#6E6E6E"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/btnarduino"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background_main"
+                android:src="@drawable/logo_arduino" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="#6E6E6E"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/btnmqtt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background_main"
+                android:src="@drawable/logo_mqtt" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

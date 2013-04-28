@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/car_coolantruby_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/car_fuel_coolant_black" >
+
+        <TextView
+            android:id="@+id/CoolantView"
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ruby_fuel_needle"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="87dp"
+            android:layout_toRightOf="@+id/ruby_intake_needle"
+            android:background="@drawable/background_gauge_counter"
+            android:gravity="center"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#2A0A0A" />
+
+        <TextView
+            android:id="@+id/FuelView"
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/CoolantView"
+            android:layout_alignBottom="@+id/CoolantView"
+            android:layout_marginRight="42dp"
+            android:layout_toLeftOf="@+id/ruby_fuel_needle"
+            android:background="@drawable/background_gauge_counter"
+            android:gravity="center"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#2A0A0A" />
+
+        <ImageView
+            android:id="@+id/ruby_intake_needle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="116dp"
+            android:layout_marginTop="82dp"
+            android:src="@drawable/car_ob2_arrow_small" />
+
+        <ImageView
+            android:id="@+id/ruby_fuel_needle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/CoolantView"
+            android:layout_alignTop="@+id/ruby_intake_needle"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/car_ob2_arrow_small" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/silver_TXView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/blue"
+                android:text="@string/TX"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/silver_TXView2"
+                android:layout_width="70dp"
+                android:layout_height="20dp"
+                android:background="#BDBDBD"
+                android:text="@string/blank"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#E6E6E6"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/silver_RXView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/blue"
+                android:text="@string/RX"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/silver_RXView2"
+                android:layout_width="70dp"
+                android:layout_height="20dp"
+                android:background="#BDBDBD"
+                android:text="@string/blank"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

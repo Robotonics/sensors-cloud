@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:text="@string/getdata"
             android:textColor="#610B0B"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <Button
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:text="@string/erasecodes"
             android:textColor="#610B0B"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
 

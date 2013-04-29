@@ -7,9 +7,12 @@ import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
@@ -21,9 +24,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+
 import com.sorin.cloudcog.R;
+import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.qrscan.IntentIntegrator;
 import com.sorin.cloudcog.cosmpush.qrscan.IntentResult;
+import com.sorin.cloudcog.geolocation.GeoLocationActivity;
 
 public class CosmAndroidResourcesActivity extends Activity {
 	private Button SaveButton;
@@ -45,12 +51,10 @@ public class CosmAndroidResourcesActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.cosmpush_main);
-		final Animation animInverseScaleCosmPush = AnimationUtils.loadAnimation(
-				this, R.anim.anim_scale_inverse);
-		final Animation animScaleCosm = AnimationUtils.loadAnimation(this,
+		final Animation animInverseScaleCosmPush = AnimationUtils
+				.loadAnimation(this, R.anim.anim_scale_inverse);
+		final Animation animScale = AnimationUtils.loadAnimation(this,
 				R.anim.anim_scale);
-		final Animation animAlphaCosm = AnimationUtils.loadAnimation(this,
-				R.anim.anim_alpha);
 		final Spinner spinner = (Spinner) findViewById(R.id.widget42);
 		// Create an ArrayAdapter using the string array and a default spinner
 		// layout
@@ -204,7 +208,7 @@ public class CosmAndroidResourcesActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				ActivateButton.setEnabled(true);
-				arg0.startAnimation(animInverseScaleCosmPush);
+				arg0.startAnimation(animScale);
 				new Handler().postDelayed(new Runnable() {
 					@Override
 					public void run() {
@@ -274,4 +278,82 @@ public class CosmAndroidResourcesActivity extends Activity {
 		}
 
 	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.cosmpush_main_menu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		/**
+		 * the following switch statement will execute based on chosen optio and
+		 * will trigger the appropriate intents
+		 */
+		case R.id.action_geolocation:
+
+			startActivity(new Intent(this, GeoLocationActivity.class));
+			Toast.makeText(this, "Geolocation services", Toast.LENGTH_SHORT)
+					.show();
+			break;
+		case R.id.action_usb:
+			startActivityForResult(
+					new Intent(
+							android.provider.Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS),
+					0);
+			Toast.makeText(this, "Turn On/Off USB debugging",
+					Toast.LENGTH_SHORT).show();
+
+			break;
+		case R.id.action_wifi:
+
+			startActivityForResult(new Intent(
+					android.provider.Settings.ACTION_WIFI_SETTINGS), 0);
+			Toast.makeText(this, "Manage wifi connection", Toast.LENGTH_SHORT)
+					.show();
+			break;
+		case R.id.action_location:
+
+			startActivityForResult(new Intent(
+					android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS),
+					0);
+			Toast.makeText(this, "Manage Location sources", Toast.LENGTH_SHORT)
+					.show();
+			break;
+
+		case R.id.action_bluetooth:
+			startActivityForResult(new Intent(
+					android.provider.Settings.ACTION_BLUETOOTH_SETTINGS), 0);
+			Toast.makeText(this, "Manage bluetooth connections",
+					Toast.LENGTH_SHORT).show();
+
+			break;
+		case R.id.action_cosm_web:
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+					Uri.parse("http://www.cosm.com"));
+			startActivity(browserIntent);
+			Toast.makeText(this, "Access your personal Cosm account",
+					Toast.LENGTH_SHORT).show();
+
+			break;
+
+		case R.id.action_cosm_pull:
+
+			Intent mainIntent = new Intent(CosmAndroidResourcesActivity.this,
+					Login.class);
+			mainIntent.putExtra("flag", "true");
+			CosmAndroidResourcesActivity.this.startActivity(mainIntent);
+			Toast.makeText(this, "Pull live data from Cosm", Toast.LENGTH_SHORT)
+					.show();
+			return true;
+		default:
+
+			break;
+		}
+		return true;
+	}
+
 }

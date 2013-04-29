@@ -9,9 +9,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.sorin.cloudcog.CloudcogMainActivity;
 import com.sorin.cloudcog.R;
 import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
+import com.sorin.cloudcog.geolocation.GeoLocationActivity;
 import com.viewpagerindicator.PageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
 
@@ -33,6 +35,17 @@ public class CarMainFragmentActivityRuby<ImageView> extends FragmentActivity {
 
 		mRubyIndicator = (TitlePageIndicator) findViewById(R.id.indicator_ruby);
 		mRubyIndicator.setViewPager(mRubyPager);
+
+	}
+
+	// kills this activity and returns to the main screen
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		Intent mainIntent = new Intent(this, CloudcogMainActivity.class);
+		this.finish();
+		startActivity(mainIntent);
+
 	}
 
 	@Override
@@ -50,11 +63,18 @@ public class CarMainFragmentActivityRuby<ImageView> extends FragmentActivity {
 		 * and will trigger the appropriate intents
 		 * 
 		 */
+		case R.id.action_geolocation:
+
+			startActivity(new Intent(this, GeoLocationActivity.class));
+			Toast.makeText(this, "Geolocation services", Toast.LENGTH_SHORT)
+					.show();
+			break;
 		// starts the silver style gauges main fragment activity
 		case R.id.action_silver_gauges:
 			Intent silverIntent = new Intent(this,
 					CarMainFragmentActivitySilver.class);
 			silverIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			CarMainFragmentActivityRuby.this.finish();
 			startActivity(silverIntent);
 
 			Toast.makeText(this, "Silver Light Style", Toast.LENGTH_SHORT)

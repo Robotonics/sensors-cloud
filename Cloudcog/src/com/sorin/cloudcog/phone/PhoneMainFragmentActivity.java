@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.sorin.cloudcog.R;
 import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
+import com.sorin.cloudcog.geolocation.GeoLocationActivity;
 import com.viewpagerindicator.PageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
 
@@ -48,6 +49,13 @@ public class PhoneMainFragmentActivity extends FragmentActivity {
 		 * the following switch statement will execute based on chosen optio and
 		 * will trigger the appropriate intents
 		 */
+
+		case R.id.action_geolocation:
+
+			startActivity(new Intent(this, GeoLocationActivity.class));
+			Toast.makeText(this, "Geolocation services", Toast.LENGTH_SHORT)
+					.show();
+			break;
 		case R.id.action_usb:
 			startActivityForResult(
 					new Intent(

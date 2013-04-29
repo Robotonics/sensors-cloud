@@ -1,6 +1,5 @@
 package com.sorin.cloudcog;
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

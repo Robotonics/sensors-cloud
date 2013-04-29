@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/VoltView"
             android:layout_alignBottom="@+id/VoltView"
-            android:layout_marginLeft="61dp"
+            android:layout_marginLeft="60dp"
             android:layout_toRightOf="@+id/VoltView"
             android:background="@drawable/background_gauge_counter"
             android:gravity="center"

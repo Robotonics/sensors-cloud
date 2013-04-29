@@ -38,8 +38,7 @@ public class CloudcogMainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.app_main_view);
 		// points to the defined animation in the anim_scale.xml file
-		final Animation animRotate = AnimationUtils.loadAnimation(this,
-				R.anim.anim_rotate);
+
 		final Animation animAlpha = AnimationUtils.loadAnimation(this,
 				R.anim.anim_alpha);
 		final Animation animTranslateYDeltaUp = AnimationUtils.loadAnimation(
@@ -50,10 +49,7 @@ public class CloudcogMainActivity extends Activity {
 				this, R.anim.anim_translate_xdelta_left);
 		final Animation animTranslateXDeltaRight = AnimationUtils
 				.loadAnimation(this, R.anim.anim_translate_xdelta_right);
-		final Animation animScale = AnimationUtils.loadAnimation(this,
-				R.anim.anim_scale);
-		final Animation animScaleInverse = AnimationUtils.loadAnimation(this,
-				R.anim.anim_scale_inverse);
+
 		btnMqTTService = (ImageButton) findViewById(R.id.btnmqtt);
 		btnArduino = (ImageButton) findViewById(R.id.btnarduino);
 		btnIOIO = (ImageButton) findViewById(R.id.btnioio);
@@ -129,8 +125,11 @@ public class CloudcogMainActivity extends Activity {
 						CloudcogMainActivity.this.startActivity(intent);
 
 					}
-				}, 400);
+
+				}, 430);
+
 			}
+
 		});
 
 		btnPhoneSensors.setOnClickListener(new View.OnClickListener() {
@@ -143,9 +142,10 @@ public class CloudcogMainActivity extends Activity {
 					public void run() {
 						Intent intent = new Intent(CloudcogMainActivity.this,
 								PhoneMainFragmentActivity.class);
+
 						startActivity(intent);
 					}
-				}, 400);
+				}, 410);
 			}
 		});
 
@@ -160,11 +160,11 @@ public class CloudcogMainActivity extends Activity {
 					public void run() {
 						Intent intent = new Intent(CloudcogMainActivity.this,
 								CarMainFragmentActivitySilver.class);
-
+						CloudcogMainActivity.this.finish();
 						startActivity(intent);
 
 					}
-				}, 390);
+				}, 410);
 
 			}
 		});
@@ -178,7 +178,7 @@ public class CloudcogMainActivity extends Activity {
 					@Override
 					public void run() {
 						Intent intent = new Intent(CloudcogMainActivity.this,
-								GeoLocationActivity.class);
+								IOIOGraphActivity.class);
 						startActivity(intent);
 					}
 				}, 410);
@@ -188,7 +188,7 @@ public class CloudcogMainActivity extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-				arg0.startAnimation(animAlpha);
+				arg0.startAnimation(animTranslateYDeltaDown);
 				new Handler().postDelayed(new Runnable() {
 					@Override
 					public void run() {
@@ -196,7 +196,7 @@ public class CloudcogMainActivity extends Activity {
 								MqttActivity.class);
 						startActivity(intent);
 					}
-				}, 330);
+				}, 440);
 			}
 		});
 
@@ -216,6 +216,12 @@ public class CloudcogMainActivity extends Activity {
 		 * the following switch statement will execute based on chosen optio and
 		 * will trigger the appropriate intents
 		 */
+		case R.id.action_geolocation:
+
+			startActivity(new Intent(this, GeoLocationActivity.class));
+			Toast.makeText(this, "Geolocation services", Toast.LENGTH_SHORT)
+					.show();
+			break;
 		case R.id.action_usb:
 			startActivityForResult(
 					new Intent(

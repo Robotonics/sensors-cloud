@@ -9,9 +9,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.sorin.cloudcog.CloudcogMainActivity;
 import com.sorin.cloudcog.R;
 import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
+import com.sorin.cloudcog.geolocation.GeoLocationActivity;
 import com.viewpagerindicator.PageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
 
@@ -24,7 +26,6 @@ public class CarMainFragmentActivitySilver extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.car_pager_main_silver);
-		
 
 		mSilverAdapter = new CarTabFragmentHandlerSilver(
 				getSupportFragmentManager());
@@ -34,6 +35,15 @@ public class CarMainFragmentActivitySilver extends FragmentActivity {
 
 		mSilverIndicator = (TitlePageIndicator) findViewById(R.id.indicator_silver);
 		mSilverIndicator.setViewPager(mSilverPager);
+	}
+//	kills this activity and returns to the main screen
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		Intent mainIntent = new Intent(this, CloudcogMainActivity.class);
+		this.finish();
+		startActivity(mainIntent);
+
 	}
 
 	@Override
@@ -51,13 +61,20 @@ public class CarMainFragmentActivitySilver extends FragmentActivity {
 		 * and will trigger the appropriate intents
 		 * 
 		 */
+		case R.id.action_geolocation:
+
+			startActivity(new Intent(this, GeoLocationActivity.class));
+			Toast.makeText(this, "Geolocation services", Toast.LENGTH_SHORT)
+					.show();
+			break;
 		// starts the ruby red gauges main fragment activity
 		case R.id.action_ruby_gauges:
 			Intent rubyIntent = new Intent(this,
 					CarMainFragmentActivityRuby.class);
 			rubyIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			CarMainFragmentActivitySilver.this.finish();
 			startActivity(rubyIntent);
-
+		
 			Toast.makeText(this, "Ruby Red Style", Toast.LENGTH_SHORT).show();
 
 			break;

@@ -7,5 +7,5 @@
         android:fromYDelta="0"
         android:repeatCount="1"
         android:repeatMode="reverse"
-        android:toYDelta="-170%p" />
+        android:toYDelta="-190%p" />
 </set>

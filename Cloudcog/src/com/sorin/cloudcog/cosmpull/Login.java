@@ -14,9 +14,12 @@ import java.net.URL;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -26,33 +29,51 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.sorin.cloudcog.R;
+import com.sorin.cloudcog.ShakeDetector;
+import com.sorin.cloudcog.ShakeDetector.OnShakeListener;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
 import com.sorin.cloudcog.geolocation.GeoLocationActivity;
 
 @SuppressWarnings({ "unused", "deprecation" })
 public class Login extends Activity {
+	// login variables
 	private Button loginBtn;
 	ProgressDialog myProgressDialog = null;
 	EditText username;
 	EditText password;
 	EditText feed;
 	Handler hdl;
-
 	boolean live;
+	// The following are used for the shake detection
+	private SensorManager mSensorManager;
+	private Sensor mAccelerometer;
+	private ShakeDetector mShakeDetector;
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.cosmpull_login);
+		// ShakeDetector initialization
+		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		mAccelerometer = mSensorManager
+				.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+		mShakeDetector = new ShakeDetector();
+		mShakeDetector.setOnShakeListener(new OnShakeListener() {
+			// Closes activity when shaken
+			@Override
+			public void onShake(int count) {
+
+				Login.this.finish();
+
+			}
+		});
 
 		loginBtn = (Button) this.findViewById(R.id.btnlogin);
 		// loginBtn.setAlpha(255);
@@ -163,6 +184,23 @@ public class Login extends Activity {
 			}
 		});
 
+	}
+
+	// methods for shake movement
+	@Override
+	public void onResume() {
+		super.onResume();
+		// Add the following line to register the Session Manager Listener
+		// onResume
+		mSensorManager.registerListener(mShakeDetector, mAccelerometer,
+				SensorManager.SENSOR_DELAY_UI);
+	}
+
+	@Override
+	public void onPause() {
+		// Add the following line to unregister the Sensor Manager onPause
+		mSensorManager.unregisterListener(mShakeDetector);
+		super.onPause();
 	}
 
 	void toogleFetchBtn(boolean state) {

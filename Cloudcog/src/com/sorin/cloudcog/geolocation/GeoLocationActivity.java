@@ -3,13 +3,15 @@ package com.sorin.cloudcog.geolocation;
 import java.util.List;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.location.Criteria;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.view.Menu;
 import android.widget.Toast;
 
@@ -17,36 +19,54 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.maps.Overlay;
 import com.sorin.cloudcog.R;
+import com.sorin.cloudcog.ShakeDetector;
+import com.sorin.cloudcog.ShakeDetector.OnShakeListener;
 import com.sorin.cloudcog.cosmpull.CustomOverlay;
 
 public class GeoLocationActivity extends FragmentActivity implements
 		LocationListener {
-
+	// map constants and variables
 	private GoogleMap googleMap;
-
 	private static final long MIN_TIME = 400;
 	private static final float MIN_DISTANCE = 1000;
 	private LocationManager locationManager;
 	List<Overlay> mapOverlays;
 	Drawable drawable;
-
 	CustomOverlay itemizedOverlay;
+	// The following are used for the shake detection
+	private SensorManager mSensorManager;
+	private Sensor mAccelerometer;
+	private ShakeDetector mShakeDetector;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.map_view);
-		   Toast.makeText(this, "GPS Position tracking and Data loging", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "GPS Position tracking and Data loging",
+				Toast.LENGTH_SHORT).show();
 		// Getting Google Play availability status
+
+		// ShakeDetector initialization
+		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		mAccelerometer = mSensorManager
+				.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+		mShakeDetector = new ShakeDetector();
+		mShakeDetector.setOnShakeListener(new OnShakeListener() {
+			// Closes activity when shaken
+			@Override
+			public void onShake(int count) {
+
+				GeoLocationActivity.this.finish();
+
+			}
+		});
 
 		int status = GooglePlayServicesUtil
 				.isGooglePlayServicesAvailable(getBaseContext());
@@ -90,14 +110,32 @@ public class GeoLocationActivity extends FragmentActivity implements
 				onLocationChanged(location);
 			}
 			locationManager.requestLocationUpdates(provider, 20000, 0, this);
+			/* implementing augmented geolocation functionality */
 
-//			FragmentManager myFragmentManager = getSupportFragmentManager();
-//			SupportMapFragment mySupportMapFragment = (SupportMapFragment) myFragmentManager
-//					.findFragmentById(R.id.map);
-//			googleMap = mySupportMapFragment.getMap();
-//
-//			googleMap.setOnMapClickListener(this);
+			// FragmentManager myFragmentManager = getSupportFragmentManager();
+			// SupportMapFragment mySupportMapFragment = (SupportMapFragment)
+			// myFragmentManager
+			// .findFragmentById(R.id.map);
+			// googleMap = mySupportMapFragment.getMap();
+			//
+			// googleMap.setOnMapClickListener(this);
 		}
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		// Add the following line to register the Session Manager Listener
+		// onResume
+		mSensorManager.registerListener(mShakeDetector, mAccelerometer,
+				SensorManager.SENSOR_DELAY_UI);
+	}
+
+	@Override
+	public void onPause() {
+		// Add the following line to unregister the Sensor Manager onPause
+		mSensorManager.unregisterListener(mShakeDetector);
+		super.onPause();
 	}
 
 	@Override
@@ -116,14 +154,13 @@ public class GeoLocationActivity extends FragmentActivity implements
 		googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
 		// draw marker
-		Marker cosmMarker = googleMap
-				.addMarker(new MarkerOptions()
-						.position(latLng)
-						.title("Cosm Feed")
-						.snippet("This is the current location of the Feed")
+		Marker cosmMarker = googleMap.addMarker(new MarkerOptions()
+				.position(latLng)
+				.title("Cosm Feed")
+				.snippet("This is the current location of the Feed")
 
-						.icon(BitmapDescriptorFactory
-								.fromResource(R.drawable.map_marker)));
+				.icon(BitmapDescriptorFactory
+						.fromResource(R.drawable.map_marker)));
 		cosmMarker.showInfoWindow();
 
 		// Zoom in the Google Map
@@ -157,14 +194,16 @@ public class GeoLocationActivity extends FragmentActivity implements
 		return true;
 	}
 
-//	@Override
-//	public void onMapClick(LatLng point) {
-//
-//		googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-//		googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-//		googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-//		googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
-//
-//	}
+	/* implementing augmented geolocation functionality */
+
+	// @Override
+	// public void onMapClick(LatLng point) {
+	//
+	// googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+	// googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+	// googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+	// googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+	//
+	// }
 
 }

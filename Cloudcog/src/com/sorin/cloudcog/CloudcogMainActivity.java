@@ -54,18 +54,13 @@ public class CloudcogMainActivity extends Activity {
 
 			@Override
 			public void onShake(int count) {
-				/*
-				 * The following method, "handleShakeEvent(count):" is a stub //
-				 * method you would use to setup whatever you want done once the
-				 * device has been shook.
-				 */
-
+				// Closes main activity when shaken from main activity
 				CloudcogMainActivity.this.finish();
 
 			}
 		});
 
-		// points to the defined animation in the anim_scale.xml file
+		/* points to the defined animation in the anim_scale.xml file */
 
 		final Animation animAlpha = AnimationUtils.loadAnimation(this,
 				R.anim.anim_alpha);
@@ -193,7 +188,7 @@ public class CloudcogMainActivity extends Activity {
 						startActivity(intent);
 
 					}
-				}, 392);
+				}, 385);
 
 			}
 		});

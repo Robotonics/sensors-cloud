@@ -1,13 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/action_geolocation"
-        android:icon="@drawable/action_geolocation"
-        android:orderInCategory="200"
-        android:showAsAction="always"/>
-    <item
         android:id="@+id/phone_preferences"
-        android:orderInCategory="400"
+        android:orderInCategory="300"
         android:title="Preferences">
         <menu>
         </menu>
@@ -16,11 +11,11 @@
         android:id="@+id/action_silver_gauges"
         android:icon="@drawable/action_silver_gauges"
         android:showAsAction="always"
-        android:title="Silver Light Style"/>
+        android:title="Silver Bright Style"/>
     <item
         android:id="@+id/cloud_services"
         android:icon="@drawable/action_cloud_services"
-        android:orderInCategory="300"
+        android:orderInCategory="200"
         android:showAsAction="always"
         android:title="Cloud Services">
         <menu>
@@ -41,6 +36,8 @@
     <item
         android:id="@+id/conection_settings"
         android:icon="@drawable/action_connections_handling"
+        android:orderInCategory="200"
+        android:showAsAction="always"
         android:title="Connections Handling">
         <menu>
             <item

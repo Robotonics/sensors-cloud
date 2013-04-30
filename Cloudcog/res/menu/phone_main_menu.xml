@@ -1,9 +1,42 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
+        android:id="@+id/action_geolocation"
+        android:icon="@drawable/action_geolocation"
+        android:showAsAction="always"/>
+    <item
+        android:id="@+id/phone_preferences"
+        android:orderInCategory="300"
+        android:title="Preferences">
+        <menu>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/cloud_services"
+        android:icon="@drawable/action_cloud_services"
+        android:orderInCategory="200"
+        android:showAsAction="ifRoom"
+        android:title="Cloud Services">
+        <menu>
+            <item
+                android:id="@+id/action_cosm_web"
+                android:icon="@drawable/action_cosm_web"
+                android:title="Cosm Web"/>
+            <item
+                android:id="@+id/action_cosm_pull"
+                android:icon="@drawable/action_cosm_pull"
+                android:title="Cosm Pull"/>
+            <item
+                android:id="@+id/action_cosm_push"
+                android:icon="@drawable/action_cosm_push"
+                android:title="Cosm Push"/>
+        </menu>
+    </item>
+    <item
         android:id="@+id/conection_settings"
         android:icon="@drawable/action_connections_handling"
         android:orderInCategory="200"
+        android:showAsAction="always"
         android:title="Connections Handling">
         <menu>
             <item
@@ -26,39 +59,7 @@
                 android:icon="@drawable/action_usb"
                 android:showAsAction="always"
                 android:title="USB Debugging"/>
-        </menu>
-    </item>
-    <item
-        android:id="@+id/phone_preferences"
-        android:orderInCategory="300"
-        android:title="Preferences">
-        <menu>
-        </menu>
-    </item>
-    <item
-        android:id="@+id/action_geolocation"
-        android:icon="@drawable/action_geolocation"
-        android:orderInCategory="200"
-        android:showAsAction="always"/>
-    <item
-        android:id="@+id/cloud_services"
-        android:icon="@drawable/action_cloud_services"
-        android:orderInCategory="200"
-        android:showAsAction="ifRoom"
-        android:title="Cloud Services">
-        <menu>
-            <item
-                android:id="@+id/action_cosm_web"
-                android:icon="@drawable/action_cosm_web"
-                android:title="Cosm Web"/>
-            <item
-                android:id="@+id/action_cosm_pull"
-                android:icon="@drawable/action_cosm_pull"
-                android:title="Cosm Pull"/>
-            <item
-                android:id="@+id/action_cosm_push"
-                android:icon="@drawable/action_cosm_push"
-                android:title="Cosm Push"/>
+            >
         </menu>
     </item>
 

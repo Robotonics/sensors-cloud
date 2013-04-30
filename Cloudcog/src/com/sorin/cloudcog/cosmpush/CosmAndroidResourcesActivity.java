@@ -5,8 +5,11 @@ import java.util.List;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -24,33 +27,51 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-
 import com.sorin.cloudcog.R;
+import com.sorin.cloudcog.ShakeDetector;
+import com.sorin.cloudcog.ShakeDetector.OnShakeListener;
 import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.qrscan.IntentIntegrator;
 import com.sorin.cloudcog.cosmpush.qrscan.IntentResult;
 import com.sorin.cloudcog.geolocation.GeoLocationActivity;
 
 public class CosmAndroidResourcesActivity extends Activity {
+	// cosmpush variables
 	private Button SaveButton;
 	private Button ActivateButton;
 	private Button ScanButton;
-
 	EditText id;
 	EditText key;
-
 	CheckBox cpu_check;
 	CheckBox memory_check;
 	CheckBox data_check;
 	CheckBox battery_check;
-
 	boolean isRunning;
+	// The following are used for the shake detection
+	private SensorManager mSensorManager;
+	private Sensor mAccelerometer;
+	private ShakeDetector mShakeDetector;
 
-	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.cosmpush_main);
+		// ShakeDetector initialization
+		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		mAccelerometer = mSensorManager
+				.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+		mShakeDetector = new ShakeDetector();
+		mShakeDetector.setOnShakeListener(new OnShakeListener() {
+			// Closes activity when shaken
+			@Override
+			public void onShake(int count) {
+
+				CosmAndroidResourcesActivity.this.finish();
+
+			}
+		});
+
+		// button animation
 		final Animation animInverseScaleCosmPush = AnimationUtils
 				.loadAnimation(this, R.anim.anim_scale_inverse);
 		final Animation animScale = AnimationUtils.loadAnimation(this,
@@ -238,6 +259,23 @@ public class CosmAndroidResourcesActivity extends Activity {
 
 	}
 
+	@Override
+	public void onResume() {
+		super.onResume();
+		// Add the following line to register the Session Manager Listener
+		// onResume
+		mSensorManager.registerListener(mShakeDetector, mAccelerometer,
+				SensorManager.SENSOR_DELAY_UI);
+	}
+
+	@Override
+	public void onPause() {
+		// Add the following line to unregister the Sensor Manager onPause
+		mSensorManager.unregisterListener(mShakeDetector);
+		super.onPause();
+	}
+
+	// save cosm push values
 	private void SavePreferences(String key, String value) {
 		SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
 		SharedPreferences.Editor editor = sharedPreferences.edit();

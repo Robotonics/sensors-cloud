@@ -173,7 +173,7 @@
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyBLt9VQBZJ7WNQSGE04TAalErYVhGHbV8U" />
+            android:value="AIzaSyB0zIbnIs1MudwG8NyFrLUKKfHsjQ9nJXY" />
 
         <service android:name="com.sorin.cloudcog.mqtt.push.MQTTService" />
     </application>

@@ -1,7 +1,10 @@
 package com.sorin.cloudcog;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,8 +16,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.sorin.cloudcog.ShakeDetector.OnShakeListener;
 import com.sorin.cloudcog.arduino.ArduinoGraphActivity;
-import com.sorin.cloudcog.car.obd2.Obd2BluetoothChatActivity;
 import com.sorin.cloudcog.car.view.CarMainFragmentActivitySilver;
 import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
@@ -32,11 +35,36 @@ public class CloudcogMainActivity extends Activity {
 	private ImageButton btnMqTTService;
 	private ImageButton btnOpenXc;
 	private ImageButton btnArduino;
+	// The following are used for the shake detection
+	private SensorManager mSensorManager;
+	private Sensor mAccelerometer;
+	private ShakeDetector mShakeDetector;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.app_main_view);
+
+		// ShakeDetector initialization
+		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		mAccelerometer = mSensorManager
+				.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+		mShakeDetector = new ShakeDetector();
+		mShakeDetector.setOnShakeListener(new OnShakeListener() {
+
+			@Override
+			public void onShake(int count) {
+				/*
+				 * The following method, "handleShakeEvent(count):" is a stub //
+				 * method you would use to setup whatever you want done once the
+				 * device has been shook.
+				 */
+
+				CloudcogMainActivity.this.finish();
+
+			}
+		});
+
 		// points to the defined animation in the anim_scale.xml file
 
 		final Animation animAlpha = AnimationUtils.loadAnimation(this,
@@ -144,8 +172,9 @@ public class CloudcogMainActivity extends Activity {
 								PhoneMainFragmentActivity.class);
 
 						startActivity(intent);
+
 					}
-				}, 410);
+				}, 392);
 			}
 		});
 
@@ -164,7 +193,7 @@ public class CloudcogMainActivity extends Activity {
 						startActivity(intent);
 
 					}
-				}, 410);
+				}, 392);
 
 			}
 		});
@@ -203,8 +232,24 @@ public class CloudcogMainActivity extends Activity {
 	}
 
 	@Override
+	public void onResume() {
+		super.onResume();
+		// Add the following line to register the Session Manager Listener
+		// onResume
+		mSensorManager.registerListener(mShakeDetector, mAccelerometer,
+				SensorManager.SENSOR_DELAY_UI);
+	}
+
+	@Override
+	public void onPause() {
+		// Add the following line to unregister the Sensor Manager onPause
+		mSensorManager.unregisterListener(mShakeDetector);
+		super.onPause();
+	}
+
+	// Inflate the menu; this adds items to the action bar if it is present.
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.app_main_menu, menu);
 		return true;
 	}

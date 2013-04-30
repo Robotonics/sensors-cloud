@@ -3,5 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-   
+
+    <TextView
+        android:id="@+id/accele_x_value"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:background="@color/snow" />
+
+    <TextView
+        android:id="@+id/accele_y_value"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:background="@color/solid_green" />
+
+    <TextView
+        android:id="@+id/accele_z_value"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:background="@color/blue" />
+
 </LinearLayout>

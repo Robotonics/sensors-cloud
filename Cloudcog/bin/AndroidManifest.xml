@@ -25,6 +25,10 @@
         android:minSdkVersion="15"
         android:targetSdkVersion="17" />
     <!-- Permisson list begin -->
+    <uses-feature
+        android:name="android.hardware.sensor.accelerometer"
+        android:required="true" />
+
     <uses-permission android:name="android.permission.ACCESS_GPS" />
     <uses-permission android:name="android.permisssion.ACCESS_FINE_LOCATION" >
     </uses-permission>

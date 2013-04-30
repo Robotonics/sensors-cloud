@@ -7,6 +7,6 @@
         android:fromXDelta="0"
         android:repeatCount="1"
         android:repeatMode="reverse"
-        android:toXDelta="-190%p" />
+        android:toXDelta="-200%p" />
 
 </set>

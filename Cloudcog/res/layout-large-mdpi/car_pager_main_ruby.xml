@@ -33,16 +33,12 @@
             android:id="@+id/silver_toggleButton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_x="47dp"
-            android:layout_y="413dp"
             android:text="@string/getdata" />
 
         <Button
             android:id="@+id/silver_erasecode_button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_x="122dp"
-            android:layout_y="413dp"
             android:text="@string/erasecodes" />
     </LinearLayout>
 

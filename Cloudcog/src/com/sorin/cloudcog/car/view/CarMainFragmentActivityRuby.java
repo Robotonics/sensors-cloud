@@ -1,6 +1,9 @@
 package com.sorin.cloudcog.car.view;
 
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -11,16 +14,23 @@ import android.widget.Toast;
 
 import com.sorin.cloudcog.CloudcogMainActivity;
 import com.sorin.cloudcog.R;
+import com.sorin.cloudcog.ShakeDetector;
+import com.sorin.cloudcog.ShakeDetector.OnShakeListener;
 import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
 import com.sorin.cloudcog.geolocation.GeoLocationActivity;
 import com.viewpagerindicator.PageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
 
-public class CarMainFragmentActivityRuby<ImageView> extends FragmentActivity {
+public class CarMainFragmentActivityRuby extends FragmentActivity {
 	CarTabFragmentHandlerRuby mRubyAdapter;
 	ViewPager mRubyPager;
 	PageIndicator mRubyIndicator;
+
+	// The following are used for the shake detection
+	private SensorManager mSensorManager;
+	private Sensor mAccelerometer;
+	private ShakeDetector mShakeDetector;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +46,42 @@ public class CarMainFragmentActivityRuby<ImageView> extends FragmentActivity {
 		mRubyIndicator = (TitlePageIndicator) findViewById(R.id.indicator_ruby);
 		mRubyIndicator.setViewPager(mRubyPager);
 
+		// When shkaed it will return to main activity initialization
+		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		mAccelerometer = mSensorManager
+				.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+		mShakeDetector = new ShakeDetector();
+		// shake handler
+		mShakeDetector.setOnShakeListener(new OnShakeListener() {
+
+			@Override
+			public void onShake(int count) {
+				Intent intent = new Intent(CarMainFragmentActivityRuby.this,
+						CloudcogMainActivity.class);
+				startActivity(intent);
+
+				CarMainFragmentActivityRuby.this.finish();
+
+			}
+		});
+
+	}
+
+	// onResume and onPause are ment for shake events
+	@Override
+	public void onResume() {
+		super.onResume();
+		// Add the following line to register the Session Manager Listener
+		// onResume
+		mSensorManager.registerListener(mShakeDetector, mAccelerometer,
+				SensorManager.SENSOR_DELAY_UI);
+	}
+
+	@Override
+	public void onPause() {
+		// Add the following line to unregister the Sensor Manager onPause
+		mSensorManager.unregisterListener(mShakeDetector);
+		super.onPause();
 	}
 
 	// kills this activity and returns to the main screen

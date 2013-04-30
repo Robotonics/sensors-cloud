@@ -1,6 +1,9 @@
 package com.sorin.cloudcog.car.view;
 
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -11,6 +14,8 @@ import android.widget.Toast;
 
 import com.sorin.cloudcog.CloudcogMainActivity;
 import com.sorin.cloudcog.R;
+import com.sorin.cloudcog.ShakeDetector;
+import com.sorin.cloudcog.ShakeDetector.OnShakeListener;
 import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
 import com.sorin.cloudcog.geolocation.GeoLocationActivity;
@@ -21,6 +26,10 @@ public class CarMainFragmentActivitySilver extends FragmentActivity {
 	CarTabFragmentHandlerSilver mSilverAdapter;
 	ViewPager mSilverPager;
 	PageIndicator mSilverIndicator;
+	// The following are used for the shake detection
+	private SensorManager mSensorManager;
+	private Sensor mAccelerometer;
+	private ShakeDetector mShakeDetector;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +44,44 @@ public class CarMainFragmentActivitySilver extends FragmentActivity {
 
 		mSilverIndicator = (TitlePageIndicator) findViewById(R.id.indicator_silver);
 		mSilverIndicator.setViewPager(mSilverPager);
+
+		// When shkaed it will return to main activity initialization
+		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		mAccelerometer = mSensorManager
+				.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+		mShakeDetector = new ShakeDetector();
+		mShakeDetector.setOnShakeListener(new OnShakeListener() {
+			// shake handler
+			@Override
+			public void onShake(int count) {
+				Intent intent = new Intent(CarMainFragmentActivitySilver.this,
+						CloudcogMainActivity.class);
+				startActivity(intent);
+
+				CarMainFragmentActivitySilver.this.finish();
+
+			}
+		});
 	}
-//	kills this activity and returns to the main screen
+
+	// onResume and onPause are ment for shake events
+	@Override
+	public void onResume() {
+		super.onResume();
+		// Add the following line to register the Session Manager Listener
+		// onResume
+		mSensorManager.registerListener(mShakeDetector, mAccelerometer,
+				SensorManager.SENSOR_DELAY_UI);
+	}
+
+	@Override
+	public void onPause() {
+		// Add the following line to unregister the Sensor Manager onPause
+		mSensorManager.unregisterListener(mShakeDetector);
+		super.onPause();
+	}
+
+	// kills this activity and returns to the main screen
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();
@@ -74,7 +119,7 @@ public class CarMainFragmentActivitySilver extends FragmentActivity {
 			rubyIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			CarMainFragmentActivitySilver.this.finish();
 			startActivity(rubyIntent);
-		
+
 			Toast.makeText(this, "Ruby Red Style", Toast.LENGTH_SHORT).show();
 
 			break;

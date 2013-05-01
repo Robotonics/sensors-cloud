@@ -56,6 +56,9 @@ public class CosmAndroidResourcesActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.cosmpush_main);
+		Toast.makeText(this, "Push live data to Cosm", Toast.LENGTH_SHORT)
+				.show();
+
 		// ShakeDetector initialization
 		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 		mAccelerometer = mSensorManager

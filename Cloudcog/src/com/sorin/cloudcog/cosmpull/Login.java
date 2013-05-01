@@ -60,6 +60,8 @@ public class Login extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.cosmpull_login);
+		Toast.makeText(this, "Pull live data from Cosm", Toast.LENGTH_SHORT)
+				.show();
 		// ShakeDetector initialization
 		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 		mAccelerometer = mSensorManager

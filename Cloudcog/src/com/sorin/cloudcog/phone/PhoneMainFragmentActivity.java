@@ -141,8 +141,6 @@ public class PhoneMainFragmentActivity extends FragmentActivity {
 
 		case R.id.action_cosm_push:
 			startActivity(new Intent(this, CosmAndroidResourcesActivity.class));
-			Toast.makeText(this, "Push live data to Cosm", Toast.LENGTH_SHORT)
-					.show();
 
 			break;
 
@@ -152,8 +150,7 @@ public class PhoneMainFragmentActivity extends FragmentActivity {
 					Login.class);
 			mainIntent.putExtra("flag", "true");
 			PhoneMainFragmentActivity.this.startActivity(mainIntent);
-			Toast.makeText(this, "Pull live data from Cosm", Toast.LENGTH_SHORT)
-					.show();
+
 			return true;
 		default:
 

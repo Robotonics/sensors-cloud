@@ -24,6 +24,11 @@
         android:title="Connections Handling">
         <menu>
             <item
+                android:id="@+id/action_nfc"
+                android:icon="@drawable/action_nfc"
+                android:showAsAction="always"
+                android:title="NFC Broadcast"/>
+            <item
                 android:id="@+id/action_location"
                 android:icon="@drawable/action_location_settings"
                 android:showAsAction="always"
@@ -43,7 +48,6 @@
                 android:icon="@drawable/action_usb"
                 android:showAsAction="always"
                 android:title="USB Debugging"/>
-            >
         </menu>
     </item>
 

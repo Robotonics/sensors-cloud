@@ -35,7 +35,8 @@ public class CarMainFragmentActivitySilver extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.car_pager_main_silver);
-
+		Toast.makeText(this, "Silver Light style OBD2 data console",
+				Toast.LENGTH_SHORT).show();
 		mSilverAdapter = new CarTabFragmentHandlerSilver(
 				getSupportFragmentManager());
 
@@ -109,8 +110,7 @@ public class CarMainFragmentActivitySilver extends FragmentActivity {
 		case R.id.action_geolocation:
 
 			startActivity(new Intent(this, GeoLocationActivity.class));
-			Toast.makeText(this, "Geolocation services", Toast.LENGTH_SHORT)
-					.show();
+
 			break;
 		// starts the ruby red gauges main fragment activity
 		case R.id.action_ruby_gauges:
@@ -120,7 +120,12 @@ public class CarMainFragmentActivitySilver extends FragmentActivity {
 			CarMainFragmentActivitySilver.this.finish();
 			startActivity(rubyIntent);
 
-			Toast.makeText(this, "Ruby Red Style", Toast.LENGTH_SHORT).show();
+			break;
+		case R.id.action_nfc:
+
+			startActivityForResult(new Intent(
+					android.provider.Settings.ACTION_NFCSHARING_SETTINGS), 0);
+			Toast.makeText(this, "Beam NFC Tag", Toast.LENGTH_SHORT).show();
 
 			break;
 		case R.id.action_usb:

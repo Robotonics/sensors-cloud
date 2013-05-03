@@ -54,7 +54,7 @@ public class CloudcogMainActivity extends Activity {
 
 			@Override
 			public void onShake(int count) {
-				// Closes main activity when shaken from main activity
+				// Closes main activity when shaking phone
 				CloudcogMainActivity.this.finish();
 
 			}
@@ -259,8 +259,14 @@ public class CloudcogMainActivity extends Activity {
 		case R.id.action_geolocation:
 
 			startActivity(new Intent(this, GeoLocationActivity.class));
-			Toast.makeText(this, "Geolocation services", Toast.LENGTH_SHORT)
-					.show();
+
+			break;
+		case R.id.action_nfc:
+
+			startActivityForResult(new Intent(
+					android.provider.Settings.ACTION_NFCSHARING_SETTINGS), 0);
+			Toast.makeText(this, "Beam NFC Tag", Toast.LENGTH_SHORT).show();
+
 			break;
 		case R.id.action_usb:
 			startActivityForResult(

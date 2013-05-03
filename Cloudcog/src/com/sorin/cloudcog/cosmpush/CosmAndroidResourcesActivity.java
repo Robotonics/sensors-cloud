@@ -337,8 +337,16 @@ public class CosmAndroidResourcesActivity extends Activity {
 		case R.id.action_geolocation:
 
 			startActivity(new Intent(this, GeoLocationActivity.class));
-			Toast.makeText(this, "Geolocation services", Toast.LENGTH_SHORT)
-					.show();
+
+			break;
+		case R.id.action_nfc:
+
+			startActivityForResult(
+					new Intent(
+							android.provider.Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS),
+					0);
+			Toast.makeText(this, "Beam NFC Tag", Toast.LENGTH_SHORT).show();
+
 			break;
 		case R.id.action_usb:
 			startActivityForResult(

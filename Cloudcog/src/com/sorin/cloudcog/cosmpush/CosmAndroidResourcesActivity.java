@@ -28,8 +28,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.sorin.cloudcog.R;
-import com.sorin.cloudcog.ShakeDetector;
-import com.sorin.cloudcog.ShakeDetector.OnShakeListener;
+import com.sorin.cloudcog.ShakeDetectorActivity;
+import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
 import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.qrscan.IntentIntegrator;
 import com.sorin.cloudcog.cosmpush.qrscan.IntentResult;
@@ -50,7 +50,7 @@ public class CosmAndroidResourcesActivity extends Activity {
 	// The following are used for the shake detection
 	private SensorManager mSensorManager;
 	private Sensor mAccelerometer;
-	private ShakeDetector mShakeDetector;
+	private ShakeDetectorActivity mShakeDetector;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -63,7 +63,7 @@ public class CosmAndroidResourcesActivity extends Activity {
 		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 		mAccelerometer = mSensorManager
 				.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-		mShakeDetector = new ShakeDetector();
+		mShakeDetector = new ShakeDetectorActivity();
 		mShakeDetector.setOnShakeListener(new OnShakeListener() {
 			// Closes activity when shaken
 			@Override

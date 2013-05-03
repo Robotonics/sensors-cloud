@@ -26,8 +26,8 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.maps.Overlay;
 import com.sorin.cloudcog.R;
-import com.sorin.cloudcog.ShakeDetector;
-import com.sorin.cloudcog.ShakeDetector.OnShakeListener;
+import com.sorin.cloudcog.ShakeDetectorActivity;
+import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
 import com.sorin.cloudcog.cosmpull.CustomOverlay;
 
 public class GeoLocationActivity extends FragmentActivity implements
@@ -43,7 +43,7 @@ public class GeoLocationActivity extends FragmentActivity implements
 	// The following are used for the shake detection
 	private SensorManager mSensorManager;
 	private Sensor mAccelerometer;
-	private ShakeDetector mShakeDetector;
+	private ShakeDetectorActivity mShakeDetector;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,7 @@ public class GeoLocationActivity extends FragmentActivity implements
 		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 		mAccelerometer = mSensorManager
 				.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-		mShakeDetector = new ShakeDetector();
+		mShakeDetector = new ShakeDetectorActivity();
 		mShakeDetector.setOnShakeListener(new OnShakeListener() {
 			// Closes activity when shaken
 			@Override

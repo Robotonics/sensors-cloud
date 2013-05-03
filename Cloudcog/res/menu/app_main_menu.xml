@@ -11,44 +11,50 @@
         android:icon="@drawable/action_geolocation"
         android:showAsAction="always"/>
     <item
-        android:id="@+id/preferences"
-        android:title="Preferences">
-        <menu>
-        </menu>
-    </item>
-    <item
-        android:id="@+id/conection_settings"
-        android:icon="@drawable/action_connections_handling"
-        android:orderInCategory="200"
+        android:id="@+id/action_nfc"
+        android:icon="@drawable/action_nfc"
         android:showAsAction="always"
-        android:title="Connections Handling">
-        <menu>
-            <item
-                android:id="@+id/action_nfc"
-                android:icon="@drawable/action_nfc"
-                android:showAsAction="always"
-                android:title="NFC Broadcast"/>
-            <item
-                android:id="@+id/action_location"
-                android:icon="@drawable/action_location_settings"
-                android:showAsAction="always"
-                android:title="Location"/>
-            <item
-                android:id="@+id/action_bluetooth"
-                android:icon="@drawable/action_bluetooth"
-                android:showAsAction="always"
-                android:title="Bluetooth"/>
-            <item
-                android:id="@+id/action_wifi"
-                android:icon="@drawable/action_wifi"
-                android:showAsAction="always"
-                android:title="Wifi"/>
-            <item
-                android:id="@+id/action_usb"
-                android:icon="@drawable/action_usb"
-                android:showAsAction="always"
-                android:title="USB Debugging"/>
-        </menu>
+        android:title="NFC Broadcast">
+        <item
+            android:id="@+id/preferences"
+            android:title="Preferences">
+            <menu>
+            </menu>
+        </item>
+        <item
+            android:id="@+id/conection_settings"
+            android:icon="@drawable/action_connections_handling"
+            android:orderInCategory="200"
+            android:showAsAction="always"
+            android:title="Connections Handling">
+            <menu>
+                <item
+                    android:id="@+id/action_nfc"
+                    android:icon="@drawable/action_nfc"
+                    android:showAsAction="always"
+                    android:title="NFC Broadcast"/>
+                <item
+                    android:id="@+id/action_location"
+                    android:icon="@drawable/action_location_settings"
+                    android:showAsAction="always"
+                    android:title="Location"/>
+                <item
+                    android:id="@+id/action_bluetooth"
+                    android:icon="@drawable/action_bluetooth"
+                    android:showAsAction="always"
+                    android:title="Bluetooth"/>
+                <item
+                    android:id="@+id/action_wifi"
+                    android:icon="@drawable/action_wifi"
+                    android:showAsAction="always"
+                    android:title="Wifi"/>
+                <item
+                    android:id="@+id/action_usb"
+                    android:icon="@drawable/action_usb"
+                    android:showAsAction="always"
+                    android:title="USB Debugging"/>
+            </menu>
+        </item>
     </item>
 
 </menu>

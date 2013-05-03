@@ -35,8 +35,8 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.sorin.cloudcog.R;
-import com.sorin.cloudcog.ShakeDetector;
-import com.sorin.cloudcog.ShakeDetector.OnShakeListener;
+import com.sorin.cloudcog.ShakeDetectorActivity;
+import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
 import com.sorin.cloudcog.geolocation.GeoLocationActivity;
 
@@ -53,7 +53,7 @@ public class Login extends Activity {
 	// The following are used for the shake detection
 	private SensorManager mSensorManager;
 	private Sensor mAccelerometer;
-	private ShakeDetector mShakeDetector;
+	private ShakeDetectorActivity mShakeDetector;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -66,7 +66,7 @@ public class Login extends Activity {
 		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 		mAccelerometer = mSensorManager
 				.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-		mShakeDetector = new ShakeDetector();
+		mShakeDetector = new ShakeDetectorActivity();
 		mShakeDetector.setOnShakeListener(new OnShakeListener() {
 			// Closes activity when shaken
 			@Override

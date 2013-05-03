@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.net.Uri;
+import android.nfc.NdefMessage;
+import android.nfc.NdefRecord;
+import android.nfc.NfcAdapter;
+import android.nfc.NfcEvent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -16,8 +20,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.sorin.cloudcog.ShakeDetector.OnShakeListener;
+import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
 import com.sorin.cloudcog.arduino.ArduinoGraphActivity;
+import com.sorin.cloudcog.car.view.CarMainFragmentActivityRuby;
 import com.sorin.cloudcog.car.view.CarMainFragmentActivitySilver;
 import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
@@ -38,7 +43,11 @@ public class CloudcogMainActivity extends Activity {
 	// The following are used for the shake detection
 	private SensorManager mSensorManager;
 	private Sensor mAccelerometer;
-	private ShakeDetector mShakeDetector;
+	private ShakeDetectorActivity mShakeDetector;
+	
+//	nfc fucntionality
+	private NdefMessage mMessage;
+	private NfcAdapter nfcAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +58,7 @@ public class CloudcogMainActivity extends Activity {
 		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 		mAccelerometer = mSensorManager
 				.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-		mShakeDetector = new ShakeDetector();
+		mShakeDetector = new ShakeDetectorActivity();
 		mShakeDetector.setOnShakeListener(new OnShakeListener() {
 
 			@Override
@@ -263,8 +272,9 @@ public class CloudcogMainActivity extends Activity {
 			break;
 		case R.id.action_nfc:
 
-			startActivityForResult(new Intent(
-					android.provider.Settings.ACTION_NFCSHARING_SETTINGS), 0);
+			// startActivityForResult(new Intent(
+			// android.provider.Settings.ACTION_NFC_SETTINGS), 0);
+
 			Toast.makeText(this, "Beam NFC Tag", Toast.LENGTH_SHORT).show();
 
 			break;
@@ -331,5 +341,4 @@ public class CloudcogMainActivity extends Activity {
 		}
 		return true;
 	}
-
 }

@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 import com.sorin.cloudcog.CloudcogMainActivity;
 import com.sorin.cloudcog.R;
-import com.sorin.cloudcog.ShakeDetector;
-import com.sorin.cloudcog.ShakeDetector.OnShakeListener;
+import com.sorin.cloudcog.ShakeDetectorActivity;
+import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
 import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
 import com.sorin.cloudcog.geolocation.GeoLocationActivity;
@@ -29,7 +29,7 @@ public class CarMainFragmentActivitySilver extends FragmentActivity {
 	// The following are used for the shake detection
 	private SensorManager mSensorManager;
 	private Sensor mAccelerometer;
-	private ShakeDetector mShakeDetector;
+	private ShakeDetectorActivity mShakeDetector;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ public class CarMainFragmentActivitySilver extends FragmentActivity {
 		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 		mAccelerometer = mSensorManager
 				.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-		mShakeDetector = new ShakeDetector();
+		mShakeDetector = new ShakeDetectorActivity();
 		mShakeDetector.setOnShakeListener(new OnShakeListener() {
 			// shake handler
 			@Override
@@ -124,7 +124,7 @@ public class CarMainFragmentActivitySilver extends FragmentActivity {
 		case R.id.action_nfc:
 
 			startActivityForResult(new Intent(
-					android.provider.Settings.ACTION_NFCSHARING_SETTINGS), 0);
+					android.provider.Settings.ACTION_NFC_SETTINGS), 0);
 			Toast.makeText(this, "Beam NFC Tag", Toast.LENGTH_SHORT).show();
 
 			break;

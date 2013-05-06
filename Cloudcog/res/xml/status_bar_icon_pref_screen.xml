@@ -1,0 +1,87 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <Preference
+        android:enabled="false"
+        android:layout="@layout/hint"
+        android:selectable="false"
+        android:title="@string/pref_hint" />
+
+    <PreferenceCategory android:title="@string/pref_cat_icon_set" >
+        <ListPreference
+            android:entries="@array/icon_set_entries"
+            android:entryValues="@array/icon_set_values"
+            android:key="icon_set"
+            android:title="@string/pref_icon_set" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="category_plugin_settings"
+        android:title="@string/pref_cat_plugin_settings" >
+        <Preference
+            android:enabled="false"
+            android:key="plugin_settings"
+            android:summary="@string/pref_plugin_settings_summary"
+            android:title="@string/pref_plugin_settings" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="category_charging_indicator"
+        android:title="@string/pref_cat_charging_indicator" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="indicate_charging"
+            android:summary="@string/pref_indicate_charging_summary"
+            android:title="@string/pref_indicate_charging" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="category_color"
+        android:title="@string/pref_cat_color" >
+        <com.darshancomputing.BatteryIndicatorPro.ColorPreviewPreference
+            android:enabled="false"
+            android:key="color_preview"
+            android:layout="@layout/color_preview_pref"
+            android:selectable="false"
+            android:title="@string/pref_color_preview" />
+
+        <CheckBoxPreference
+            android:defaultValue="@bool/default_use_red"
+            android:key="use_red"
+            android:summary="@string/pref_red_summary"
+            android:title="@string/pref_red" />
+
+        <ListPreference
+            android:defaultValue="@string/default_red_thresh"
+            android:dialogTitle="@string/pref_red_thresh_summary"
+            android:key="red_threshold"
+            android:title="@string/pref_red_thresh" />
+
+        <CheckBoxPreference
+            android:defaultValue="@bool/default_use_amber"
+            android:key="use_amber"
+            android:summary="@string/pref_amber_summary"
+            android:title="@string/pref_amber" />
+
+        <ListPreference
+            android:defaultValue="@string/default_amber_thresh"
+            android:dialogTitle="@string/pref_amber_thresh_summary"
+            android:key="amber_threshold"
+            android:title="@string/pref_amber_thresh" />
+
+        <CheckBoxPreference
+            android:defaultValue="@bool/default_use_green"
+            android:key="use_green"
+            android:summary="@string/pref_green_summary"
+            android:title="@string/pref_green" />
+
+        <ListPreference
+            android:defaultValue="@string/default_green_thresh"
+            android:dialogTitle="@string/pref_green_thresh_summary"
+            android:key="green_threshold"
+            android:title="@string/pref_green_thresh" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="ten_percent_mode"
+            android:summary="@string/pref_ten_percent_mode_summary"
+            android:title="@string/pref_ten_percent_mode" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

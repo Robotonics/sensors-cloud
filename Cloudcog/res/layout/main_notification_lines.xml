@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="0px"
+    android:layout_height="fill_parent"
+    android:layout_weight="1.0"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/top_line"
+        style="@style/NotificationTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.5"
+        android:ellipsize="end"
+        android:gravity="left|bottom"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/bottom_line"
+        style="@style/NotificationText"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.5"
+        android:ellipsize="end"
+        android:gravity="left|top"
+        android:paddingTop="3dp"
+        android:singleLine="true" />
+
+</LinearLayout>

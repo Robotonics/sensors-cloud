@@ -1,6 +1,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
+        android:id="@+id/menu_rate_and_review"
+        android:icon="@+android:drawable/btn_star_big_off"
+        android:showAsAction="never"
+        android:title="@string/menu_rate_and_review"/>
+    <item
+        android:id="@+id/phone_preferences"
+        android:orderInCategory="300"
+        android:title="Preferences">
+        <menu>
+        </menu>
+    </item>
+    <item
         android:id="@+id/action_cosm_web"
         android:icon="@drawable/action_cosm_web"
         android:orderInCategory="100"
@@ -11,50 +23,38 @@
         android:icon="@drawable/action_geolocation"
         android:showAsAction="always"/>
     <item
-        android:id="@+id/action_nfc"
-        android:icon="@drawable/action_nfc"
+        android:id="@+id/conection_settings"
+        android:icon="@drawable/action_connections_handling"
+        android:orderInCategory="200"
         android:showAsAction="always"
-        android:title="NFC Broadcast">
-        <item
-            android:id="@+id/preferences"
-            android:title="Preferences">
-            <menu>
-            </menu>
-        </item>
-        <item
-            android:id="@+id/conection_settings"
-            android:icon="@drawable/action_connections_handling"
-            android:orderInCategory="200"
-            android:showAsAction="always"
-            android:title="Connections Handling">
-            <menu>
-                <item
-                    android:id="@+id/action_nfc"
-                    android:icon="@drawable/action_nfc"
-                    android:showAsAction="always"
-                    android:title="NFC Broadcast"/>
-                <item
-                    android:id="@+id/action_location"
-                    android:icon="@drawable/action_location_settings"
-                    android:showAsAction="always"
-                    android:title="Location"/>
-                <item
-                    android:id="@+id/action_bluetooth"
-                    android:icon="@drawable/action_bluetooth"
-                    android:showAsAction="always"
-                    android:title="Bluetooth"/>
-                <item
-                    android:id="@+id/action_wifi"
-                    android:icon="@drawable/action_wifi"
-                    android:showAsAction="always"
-                    android:title="Wifi"/>
-                <item
-                    android:id="@+id/action_usb"
-                    android:icon="@drawable/action_usb"
-                    android:showAsAction="always"
-                    android:title="USB Debugging"/>
-            </menu>
-        </item>
+        android:title="Connections Handling">
+        <menu>
+            <item
+                android:id="@+id/action_nfc"
+                android:icon="@drawable/action_nfc"
+                android:showAsAction="always"
+                android:title="NFC Broadcast"/>
+            <item
+                android:id="@+id/action_location"
+                android:icon="@drawable/action_location_settings"
+                android:showAsAction="always"
+                android:title="Location"/>
+            <item
+                android:id="@+id/action_bluetooth"
+                android:icon="@drawable/action_bluetooth"
+                android:showAsAction="always"
+                android:title="Bluetooth"/>
+            <item
+                android:id="@+id/action_wifi"
+                android:icon="@drawable/action_wifi"
+                android:showAsAction="always"
+                android:title="Wifi"/>
+            <item
+                android:id="@+id/action_usb"
+                android:icon="@drawable/action_usb"
+                android:showAsAction="always"
+                android:title="USB Debugging"/>
+        </menu>
     </item>
 
 </menu>

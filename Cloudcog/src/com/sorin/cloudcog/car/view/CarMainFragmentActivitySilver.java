@@ -55,9 +55,6 @@ public class CarMainFragmentActivitySilver extends FragmentActivity {
 			// shake handler
 			@Override
 			public void onShake(int count) {
-				Intent intent = new Intent(CarMainFragmentActivitySilver.this,
-						CloudcogMainActivity.class);
-				startActivity(intent);
 
 				CarMainFragmentActivitySilver.this.finish();
 
@@ -80,16 +77,6 @@ public class CarMainFragmentActivitySilver extends FragmentActivity {
 		// Add the following line to unregister the Sensor Manager onPause
 		mSensorManager.unregisterListener(mShakeDetector);
 		super.onPause();
-	}
-
-	// kills this activity and returns to the main screen
-	@Override
-	public void onBackPressed() {
-		super.onBackPressed();
-		Intent mainIntent = new Intent(this, CloudcogMainActivity.class);
-		this.finish();
-		startActivity(mainIntent);
-
 	}
 
 	@Override

@@ -1,0 +1,31 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/pref_cat_keyguard" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="notify_when_kg_disabled"
+            android:summary="@string/pref_notify_when_kg_disabled_summary"
+            android:title="@string/pref_notify_when_kg_disabled" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="confirm_disable_lock_screen"
+            android:summary="@string/pref_confirm_manual_disable_summary"
+            android:title="@string/pref_confirm_manual_disable" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="finish_after_toggle_lock"
+            android:summary="@string/pref_finish_after_toggle_lock_summary"
+            android:title="@string/pref_finish_after_toggle_lock" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="auto_disable_lock_screen"
+            android:summary="@string/pref_auto_disable_summary"
+            android:title="@string/pref_auto_disable" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="disallow_disable_lock_screen"
+            android:summary="@string/pref_disallow_disable_lock_screen_summary"
+            android:title="@string/pref_disallow_disable_lock_screen" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

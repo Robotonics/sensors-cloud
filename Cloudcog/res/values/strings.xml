@@ -77,5 +77,707 @@
     <string name="not_support_network">Network provider not supported</string>
     <string name="use_fine_provider">Fine-grain provider</string>
     <string name="use_both_providers">Both providers</string>
+    <string name="app_full_name" formatted="false">BatteryBot Pro</string>
+    <string name="app_launcher_name" formatted="false">BatteryBot</string>
+    <string name="settings_activity_subtitle" formatted="false">Settings</string>
+    <string name="help_activity_subtitle" formatted="false">Help</string>
+    <string name="log_view_activity_subtitle" formatted="false">Logs</string>
+    <string name="app_full_name_free" formatted="false">BatteryBot</string>
+    <string name="battery_use_b" formatted="false">View Battery Use</string>
+    <string name="upgrade_donate_b" formatted="false">Upgrade/Donate...</string>
+    <string name="reenable_lock_screen" formatted="false">Reenable Lock Screen</string>
+    <string name="disable_lock_screen" formatted="false">Disable Lock Screen</string>
+    <string name="confirm_disable" formatted="false">Really disable lock screen?</string>
+    <string name="confirm_disable_hint" formatted="false">    Hint: Disable this confirmation dialog in the settings...</string>
+    <string name="yes" formatted="false">Yes</string>
+    <string name="cancel" formatted="false">Cancel</string>
+    <string name="confirm_close" formatted="false">Really Close?</string>
+    <!-- app close dialog -->
+    <string name="confirm_close_hint" formatted="false">    BatteryBot will be completely closed, and you won\'t see it
+    in your status bar any more.\n
+
+    \nIf you just want to leave the main window and keep the indicator
+    running, press Cancel and then just press your device\'s BACK
+    button to leave the main window.</string>
+    <string name="confirm_appclose_hint" formatted="false">    Cloudocog will completely close, together with all running services.\n
+    \nIf you just want to leave the main window and keep services
+    running, press Cancel and then just press your device\'s BACK
+    button to leave the main window.</string>
+    <string name="confirm_clear_logs" formatted="false">Really clear all logs?</string>
+    <string name="configure_log_filter" formatted="false">Show which log items?</string>
+    <string name="confirm_ten_percent_enable" formatted="false">Really enable 10% Mode?</string>
+    <string name="confirm_ten_percent_disable" formatted="false">Really disable 10% Mode?</string>
+    <string name="confirm_ten_percent_hint" formatted="false">    Warning: Changing this setting (both enabling and disabling it)
+    will reset your color settings.\n
+
+    \nIf you have a Motorola Droid, Droid X, Droid 2, Defy,
+    or Samsung Moment, you should turn
+    this on when you first get the app, and then leave it alone.  All
+    other devices, as far as I know, should always leave this off.</string>
+    <string name="okay" formatted="false">Okay</string>
+    <string name="none" formatted="false">None</string>
+    <string name="tab_current_info" formatted="false">Battery%</string>
+    <string name="tab_history" formatted="false">Battery Log</string>
+    <string name="notification_until_charged" formatted="false">" until charged"</string>
+    <string name="notification_until_drained" formatted="false">" left"</string>
+    <string name="activity_until_charged" formatted="false">until charged</string>
+    <string name="activity_until_drained" formatted="false">until drained</string>
+    <string name="menu_settings" formatted="false">Settings</string>
+    <string name="menu_close" formatted="false">Close</string>
+    <string name="menu_help" formatted="false">Help</string>
+    <string name="menu_rate_and_review" formatted="false">Rate &amp; Review</string>
+    <string name="menu_clear" formatted="false">Clear</string>
+    <string name="menu_reverse" formatted="false">Reverse Order</string>
+    <string name="menu_log_filter" formatted="false">Filter</string>
+    <string name="menu_export" formatted="false">Export CSV</string>
+    <string name="menu_delete_alarm" formatted="false">Delete Alarm</string>
+    <string name="menu_get_plugins" formatted="false">Get Plugins</string>
+    <string name="percent_symbol" formatted="false">%</string>
+    <string name="degree_symbol" formatted="false">°</string>
+    <string name="fahrenheit" formatted="false">Fahrenheit</string>
+    <string name="fahrenheit_symbol" formatted="false">F</string>
+    <string name="celsius" formatted="false">Celsius</string>
+    <string name="celsius_symbol" formatted="false">C</string>
+    <string name="volt_symbol" formatted="false">V</string>
+    <string name="fully_charged_in" formatted="false">Fully Charged in:</string>
+    <string name="light_usage" formatted="false">Light Usage Left:</string>
+    <string name="normal_usage" formatted="false">Normal Usage Left:</string>
+    <string name="heavy_usage" formatted="false">Heavy Usage Left:</string>
+    <string name="constant_usage" formatted="false">Constant Usage Left:</string>
+    <string name="press_back_to_leave" formatted="false">Press BACK to leave.</string>
+    <string name="press_menu_for_more" formatted="false">Press MENU for more items.</string>
+    <string name="inaccessible_storage" formatted="false">SD Card is inaccessible.</string>
+    <string name="inaccessible_w_reason" formatted="false">SD Card inaccessible: </string>
+    <string name="read_only_storage" formatted="false">SD Card is read only.</string>
+    <string name="file_written" formatted="false">File successfully written to root of SD card.</string>
+
+    <!-- These are used for the CSV export. -->
+    <string name="date" formatted="false">date</string>
+    <string name="time" formatted="false">time</string>
+    <string name="status" formatted="false">status</string>
+    <string name="charge" formatted="false">charge_percentage</string>
+    <string name="temperature" formatted="false">degrees_celsius</string>
+    <string name="temperature_f" formatted="false">degrees_fahrenheit</string>
+    <string name="voltage" formatted="false">volts</string>
+    <string name="status_unplugged" formatted="false">Unplugged</string>
+    <string name="status_unknown" formatted="false">Unknown</string>
+    <string name="status_charging" formatted="false">Charging</string>
+    <string name="status_discharging" formatted="false">Discharging</string>
+    <string name="status_not_charging" formatted="false">Not Charging</string>
+    <string name="status_fully_charged" formatted="false">Fully Charged</string>
+    <string name="status_plugged_in" formatted="false">Plugged In</string>
+    <string name="health_unknown" formatted="false">Unknown</string>
+    <string name="health_good" formatted="false">Good Health</string>
+    <string name="health_overheat" formatted="false">Overheat</string>
+    <string name="health_dead" formatted="false">Dead</string>
+    <string name="health_overvoltage" formatted="false">Overvoltage</string>
+    <string name="health_failure" formatted="false">Failure</string>
+    <string name="health_cold" formatted="false">Cold</string>
+    <string name="plugged_unplugged" formatted="false">Unplugged</string>
+    <string name="plugged_ac" formatted="false">(AC)</string>
+    <string name="plugged_usb" formatted="false">(USB)</string>
+    <string name="plugged_unknown" formatted="false">(?)</string>
+    <string name="plugged_wireless" formatted="false">(Wireless)</string>
+    <string name="alarm_type_fully_charged" formatted="false">Fully charged</string>
+    <string name="alarm_type_charge_drops" formatted="false">Charge drops below</string>
+    <string name="alarm_type_charge_rises" formatted="false">Charge rises above</string>
+    <string name="alarm_type_temperature_rises" formatted="false">Temperature rises above</string>
+    <string name="alarm_type_health_failure" formatted="false">Health failure</string>
+    <string name="alarm_type_entry_fully_charged" formatted="false">Becomes fully charged</string>
+    <string name="alarm_type_entry_charge_drops" formatted="false">Charge drops below...</string>
+    <string name="alarm_type_entry_charge_rises" formatted="false">Charge rises above...</string>
+    <string name="alarm_type_entry_temperature_rises" formatted="false">Temperature rises above...</string>
+    <string name="alarm_type_entry_health_failure" formatted="false">Health fails</string>
+    <string name="alarm_fully_charged" formatted="false">Battery is now fully charged</string>
+    <string name="alarm_charge_drops" formatted="false">"Battery charge is below "</string>
+    <string name="alarm_charge_rises" formatted="false">"Battery charge is above "</string>
+    <string name="alarm_temp_rises" formatted="false">"Battery temp. is above "</string>
+    <string name="alarm_health_failure" formatted="false">"Battery health is: "</string>
+    <string name="alarm_text" formatted="false">Select to edit alarms.</string>
+    <string name="logs_empty" formatted="false">Logs Are Empty</string>
+
+    <plurals name="n_log_items">
+        <item quantity="one">%d Log Item</item>
+        <item quantity="other">%d Log Items</item>
+    </plurals>
+
+    <string name="after_n_hours_unplugged" formatted="true">After %1.1f hours unplugged</string>
+    <string name="after_n_hours_plugged_in" formatted="true">After %1.1f hours plugged in</string>
+
+    <plurals name="n_hours_long">
+        <item quantity="one">"%d hour, "</item>
+        <item quantity="other">"%d hours, "</item>
+    </plurals>
+    <plurals name="n_minutes_long">
+        <item quantity="one">%d minute</item>
+        <item quantity="other">%d minutes</item>
+    </plurals>
+    <plurals name="n_hours_medium">
+        <item quantity="one">"%d hr, "</item>
+        <item quantity="other">"%d hrs, "</item>
+    </plurals>
+    <plurals name="n_minutes_medium">
+        <item quantity="one">%d min.</item>
+        <item quantity="other">%d mins.</item>
+    </plurals>
+    <plurals name="n_hours_short">
+        <item quantity="other">"%dh "</item>
+    </plurals>
+    <plurals name="n_minutes_short">
+        <item quantity="other">%dm</item>
+    </plurals>
+    <plurals name="n_days">
+        <item quantity="one">"%d day, "</item>
+        <item quantity="other">"%d days, "</item>
+    </plurals>
+    <plurals name="n_hours">
+        <item quantity="one">%d hour</item>
+        <item quantity="other">%d hours</item>
+    </plurals>
+
+    <string name="discharging_from" formatted="false">Discharging from</string>
+    <string name="charging_from" formatted="false">Charging from</string>
+    <string name="fully_charged" formatted="false">Fully Charged</string>
+    <string name="since" formatted="false">Since</string>
+
+    <plurals name="for_n_hours">
+        <item quantity="one">For %d Hour</item>
+        <item quantity="other">For %d Hours</item>
+    </plurals>
+
+    <string name="dialog_color_picker">Choose Color</string>
+    <string name="press_color_to_apply">Apply old or new color:</string>
+    <string name="currently_using" formatted="false">Currently using</string>
+    <string name="currently_set_to" formatted="false">"Currently set to: "</string>
+    <string name="currently_disabled" formatted="false">Currently Disabled</string>
+    <string name="help_cat_version" formatted="false">Version</string>
+    <string name="help_cat_changelog" formatted="false">Changelog</string>
+    <string name="help_changelog" formatted="false">    See the <a href="http://code.google.com/p/battery-indicator/wiki/Changelog?tm=6">online Changelog</a>.</string>
+    <string name="help_cat_introduction" formatted="false">Introduction</string>
+    <string name="help_introduction" formatted="false">This
+    is <i>BatteryBot Pro</i>, the \"Pro\" version of the
+    popular free app, <i>BatteryBot</i>.  It\'s available for
+    purchase from the Android Market, but it\'s an open source
+    project, which means you can download the source for free
+    from <a href="http://code.google.com/p/battery-indicator/">the
+    project website</a>.</string>
+    <string name="help_introduction_free" formatted="false">This
+    is <i>BatteryBot</i>, the free version of the<i>BatteryBot</i> family of apps.  It\'s available from
+    the Android Market, and it\'s an open source project,
+    which means you can download the source for free
+    from <a href="http://code.google.com/p/battery-indicator/">the
+    project website</a>.\n
+
+    \nPlease consider donating by upgrading to the<a href="market://details?id=com.darshancomputing.BatteryIndicatorPro">Pro
+      Version</a>.</string>
+    <string name="help_cat_summary" formatted="false">Summary</string>
+    <string name="help_summary" formatted="false"><i>BatteryBot
+    Pro</i> is a lightweight battery indicator for the
+    Android™ mobile operating system.  Its core feature is that it
+    provides an icon that lives in the status bar and shows you the
+    percentage of battery charge left.\n
+
+    \nThis Pro version offers a great deal more utility than that,
+    however.  Besides offering red, amber, and green icons, it also
+    has the following key features as of version 3.0:\n
+
+    \n• Fully automated estimated charge/discharge time left.
+    \n• Downloadable icon plugins.
+    \n• Logging of battery state.
+    \n• Manually disable/reenable the device lock screen, with the option
+    to automatically disable it when plugged in and reenable it when unplugged.
+    \n• Many more useful things that you\'ll discover throughout.</string>
+    <string name="help_summary_free" formatted="false"><i>BatteryBot</i>    is a lightweight battery indicator for the
+    Android™ mobile operating system.  Its core feature is that it
+    provides an icon that lives in the status bar and shows you the
+    percentage of battery charge left.\n
+
+    \nThe Pro version offers a great deal more utility than that,
+    however.  Besides offering red, amber, and green icons, it also
+    has the following key features as of version 3.0:\n
+
+    \n• Fully automated estimated charge/discharge time left.
+    \n• Downloadable icon plugins.
+    \n• Logging of battery state.
+    \n• Manually disable/reenable the device lock screen, with the option
+    to automatically disable it when plugged in and reenable it when unplugged.
+    \n• Many more useful things that you\'ll discover throughout.</string>
+    <string name="help_cat_limitations" formatted="false">Limitations</string>
+    <string name="help_limitations" formatted="false">(<i>These
+    are out of my control.</i>)\n
+
+    \n• There\'s no way to remove the built-in battery icon.
+    \n• The notification icon in the status bar and the message you see in the
+    notification tray are tied together — you can\'t have one without the other.
+    \n• Many apps should allow installation to removable storage (SD card); some
+    should not.  BatteryBot is of the latter group.  See<a href="http://code.google.com/p/battery-indicator/wiki/FAQ?tm=6">the project
+      FAQ</a> if you\'d like further explanation.</string>
+    <string name="help_cat_features" formatted="false">Features</string>
+    <string name="help_features" formatted="false">    • Small, simple, and easy to read.
+    \n• It doesn\'t do any polling. It receives a broadcast message from the OS
+    when the battery status changes, then it simply updates the icon and
+    goes back to sleep. What this means is that it will take up a small
+    amount of RAM, but essentially 0 CPU cycles, so it can\'t drain your
+    battery.  I estimate that it will cost you about 1 minute of usage time
+    off of a full discharge as a worst case scenario.  If you are experiencing
+    anything worse than that, you probably have another app (such as a \"task
+    killer\" app of some kind) interfering with BatteryBot\'s normal
+    operation.
+    \n• Easy access to Battery Use screen (requires Android 1.6+).
+    \n• Configure to always start on boot, never start on boot, or start on boot
+    if the app was running on shutdown.
+    \n• Lots more that I\'m either forgetting or seem too minor to mention on
+    their on, but that add up to a great app.
+    \n• The satisfaction of supporting the developer. (I really appreciate it!)</string>
+    <string name="help_cat_no_warranty" formatted="false">No Warranty</string>
+    <string name="help_no_warranty" formatted="false">    This software is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n
+
+    \nWhile I do my best to make sure that it works well and does not
+    cause problems, I am not responsible for any damage or inconvenience
+    it may cause under any circumstance.</string>
+    <string name="help_cat_acknowledgments" formatted="false">Acknowledgments</string>
+    <string name="help_acknowledgments" formatted="false">This
+    app would only be available in English without the generous
+    assistance of the volunteer translators.  Thanks!\n
+
+    \nMany thanks are due to Google and all of the open-source coders
+    who made the Android platform and this app possible.\n
+
+    \nThe launcher icon (the upright battery you see in the Market) is
+    based on an icon from <a href="http://www.oxygen-icons.org">the
+    Oxygen icon theme</a> and used under the<a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Common
+      Attribution-ShareAlike 3.0 License</a>.</string>
+    <string name="help_cat_translations" formatted="false">Translations</string>
+    <string name="help_translations" formatted="false">I
+    need help translating this app to other languages.  If you would
+    like to help, please send me
+    an <a href="mailto:android%2Btranslations@darshancomputing.com">email</a>.
+    (This address is only for translation; see Contact section below
+    for all other inquiries.)  Unless you prefer me not to, I will add
+    your name to this section in acknowledgment of your assistance.</string>
+    <string name="help_subcat_translators" formatted="false">Translators</string>
+    <string name="help_cat_contact" formatted="false">Contact</string>
+    <string name="help_contact" formatted="false">If
+    you have a question or a problem, please<a href="mailto:battery-indicator-support@darshancomputing.com">email me</a>.\n</string>
+    <string name="pref_hint" formatted="false">Hint: Press MENU for help.</string>
+    <string name="settings_overview" formatted="false">Overview</string>
+    <string name="settings_overview_help" formatted="false">    The settings are organized into separate pages, as described
+    below.  Each page has its own help page describing the settings on
+    that page.  Simply press MENU then Help (on tablets, MENU isn\'t necessary) to get
+    help from whatever settings page you are on.</string>
+    <string name="notification_settings" formatted="false">Main Notification</string>
+    <string name="notification_settings_summary" formatted="false">Configure the main notification</string>
+    <string name="notification_settings_help" formatted="false">    You can configure which content to show in the pull-down notification and control its appearance.</string>
+    <string name="status_bar_icon_settings" formatted="false">Status Bar Icon</string>
+    <string name="status_bar_icon_settings_summary" formatted="false">Control icon sets</string>
+    <string name="status_bar_icon_settings_help" formatted="false">    You can select which icon set to use and change the settings for the icon set (e.g., colors).</string>
+    <string name="keyguard_settings" formatted="false">Lock Screen</string>
+    <string name="keyguard_settings_summary" formatted="false">Configure the feature to disable the lock screen</string>
+    <string name="keyguard_settings_help" formatted="false">    You can configure several aspects about the feature to automatically or manually disable your device\'s lock screen.</string>
+    <string name="alarm_settings_subtitle" formatted="false">Alarm Settings</string>
+    <string name="alarm_settings" formatted="false">Alarms</string>
+    <string name="alarm_settings_summary" formatted="false">Control notifications for low/full battery</string>
+    <string name="alarm_settings_help" formatted="false">    You can have BatteryBot notify you when your battery level
+    reaches a certain point (e.g., the battery becomes fully charged,
+    the battery level drops below 20%).</string>
+    <string name="other_settings" formatted="false">Other Settings</string>
+    <string name="other_settings_help" formatted="false">    All other settings are on this page, including logging, lock
+    screen, temperature unit, autostart, and more.</string>
+    <string name="pref_cat_more_settings_in_pro" formatted="false">More Settings in Pro</string>
+    <string name="pref_please_upgrade" formatted="false">    The Pro version has many more settings and features, including
+    colorful icons, alarms,
+    battery state logging, auto/manual lock screen disable,
+    charge/discharge remaining estimates, and more.</string>
+    <string name="add_alarm" formatted="false">Add alarm</string>
+    <string name="pref_cat_notification_layout" formatted="false">Layout</string>
+    <string name="pref_use_system_notification_layout" formatted="false">Use System Layout</string>
+    <string name="pref_use_system_notification_layout_summary" formatted="false">Use system notification layout rather than custom BatteryBot layout?</string>
+    <string name="pref_use_system_notification_layout_help" formatted="false">    If enabled, the system notification layout will be used instead of
+    BatteryBot\'s custom layout. The system layout is less
+    customizable, but a small minority of devices don\'t report
+    default colors properly, making the custom layout ugly or hard to
+    read. Other devices use an unusual layout, making the custom
+    layout not fit in. Selecting this option will ensure that the
+    notification will look like any other notification.\n
+
+    \nNote that this will result in having the status bar icon used in
+    the notification.</string>
+    <string name="pref_cat_notification_content" formatted="false">Content</string>
+    <string name="pref_icon_area_content" formatted="false">Icon Area Content</string>
+    <string name="pref_icon_area_content_help" formatted="false">    Choose what you wish to see at the left end of the notification in the icon area.
+    You can have just the battery graphic, just the textual charge percentage, or both, in either order.</string>
+    <string name="battery_graphic" formatted="false">Battery Graphic</string>
+    <string name="charge_percentage" formatted="false">Charge Percentage</string>
+    <string name="percentage_first" formatted="false">Percentage, Battery</string>
+    <string name="battery_first" formatted="false">Battery, Percentage</string>
+    <string name="pref_top_line_content" formatted="false">Top Line Content</string>
+    <string name="pref_top_line_content_help" formatted="false">    Configure what goes in the top line of the notification: estimated
+    time remaining (configurable elsewhere), how long since the status
+    has changed (plugged in, unplugged, or fully charged), or the
+    battery vital signs (battery health, temperature, and voltage).</string>
+    <string name="pref_bottom_line_content" formatted="false">Bottom Line Content</string>
+    <string name="pref_bottom_line_content_help" formatted="false">    You have the same options for the bottom line as for the top line.</string>
+    <string name="time_remaining" formatted="false">Time Remaining</string>
+    <string name="time_since_status_change" formatted="false">Time Since Status Change</string>
+    <string name="vital_signs" formatted="false">Vital Signs</string>
+    <string name="pref_time_remaining_verbosity" formatted="false">Time Remaining Verbosity</string>
+    <string name="pref_time_remaining_verbosity_help" formatted="false">    Devices come in all shapes and sizes, so most translations need to
+    use abbreviations to ensure that the time-remaining estimate fits
+    comfortably in the notification area.  If it still doesn\'t fit,
+    you can opt for the condensed format.  If you have plenty of room,
+    you might prefer the verbose setting.</string>
+    <string name="condensed" formatted="false">Condensed</string>
+    <string name="normal" formatted="false">Normal</string>
+    <string name="verbose" formatted="false">Verbose</string>
+    <string name="pref_status_duration_in_vital_signs" formatted="false">Status Duration in Vital Signs</string>
+    <string name="pref_status_duration_in_vital_signs_summary" formatted="false">    Include Time Since Status Change in Vital Signs?</string>
+    <string name="pref_status_duration_in_vital_signs_help" formatted="false">    If set, the vital signs line will also include the number of hours
+    since the device became unplugged, plugged in, or fully charged.</string>
+    <string name="pref_cat_notification_appearance" formatted="false">Appearance</string>
+    <string name="pref_cat_notification_appearance_help" formatted="false">    You can override the colors for the notification text if the defaults are hard to read
+    or if you just prefer something different.  You can also choose to override whether or not
+    to show a box around the icon area.</string>
+    <string name="pref_notification_percentage_text_color" formatted="false">Percentage Text Color</string>
+    <string name="pref_custom_percentage_text_color" formatted="false">Custom Percentage Color</string>
+    <string name="pref_notification_top_line_color" formatted="false">Top Line Text Color</string>
+    <string name="pref_custom_top_line_color" formatted="false">Custom Top Line Color</string>
+    <string name="pref_notification_bottom_line_color" formatted="false">Bottom Line Text Color</string>
+    <string name="pref_custom_bottom_line_color" formatted="false">Custom Bottom Line Color</string>
+    <string name="pref_show_box_around_icon_area" formatted="false">Show Box Around Icon Area</string>
+    <string name="pref_show_box_around_icon_area_summary" formatted="false">    Show background color box in icon area?</string>
+    <string name="system_default" formatted="false">System Default</string>
+    <string name="black" formatted="false">Black</string>
+    <string name="white" formatted="false">White</string>
+    <string name="ics_blue" formatted="false">Android ICS Blue</string>
+    <string name="custom" formatted="false">Custom...</string>
+    <string name="pref_cat_notification_priority" formatted="false">Notification Priority</string>
+    <string name="pref_cat_notification_priority_help" formatted="false">    On Jelly Bean and up (Android 4.1 and over), notifications can have a priority set.
+    The effect(s) of changing the priority are not guaranteed, but in general:\n
+
+    \n• Setting it to \"Minimum\" should in most cases remove the status bar icon but
+    still show the notification in the pull-down notification tray.\n
+
+    \n• Setting it to \"Low\" should allow other notifications, such as new email, to appear
+    above the BatteryBot notification. This is nice in cases like email where the
+    notification is expandable (expandable notifications are automatically expanded when
+    they are the top notification).\n
+
+    \nPriorities \"Default\" and above seem to usually leave BatteryBot as the top
+    notification, but I imagine there are edge cases where the higher priorities make a difference.\n
+
+    \nAgain, the exact behavior may vary between devices and is not guaranteed.</string>
+    <string name="pref_main_notification_priority" formatted="false">Main Notification Priority</string>
+    <string name="pref_main_notification_priority_help" formatted="false">    Set the priority of the main notification.  Alarms, plugins, and any other notifications are not
+    affected by this setting, but they may in the future have configurable priority.</string>
+    <string name="pref_cat_icon_set" formatted="false">Icon Set</string>
+    <string name="pref_icon_set" formatted="false">Icon Set</string>
+    <string name="pref_icon_set_help" formatted="false">    Android comes in many flavors, so there is no one perfect icon set
+    that works well on every device.  Pro users can use plugins to get
+    more options, but there are now three built-in icon sets that
+    should provide at least one good option for virtually every
+    device.\n
+
+    \n\"Classic\" is the original icon set from 2009.  It is still the
+    best on older devices, but newer versions of Android (starting
+    with Android 3.0, Honeycomb) shrink and dim the notification icons,
+    making this set very difficult to read.\n
+
+    \n\"Plain number\" is the default for all newer Android devices.
+    It is a very large white number that shows up well even after
+    being shrunk and dimmed.  It shows a lightning bolt under the
+    number during charging.\n
+
+    \n\"Smaller number\" is like \"Plain number\" but smaller, because
+    some newer devices do not actually shrink the icon like stock
+    Android does, and the very large number in \"Plain Number\" can
+    appear comically large on these devices.\n
+
+    \nIf you have any BatteryBot Pro icon plugins installed
+    (press MENU, then Get Plugins to get free plugins, or just press
+    the Get Plugins button on the Action Bar on newer devices), you
+    can choose among them here.</string>
+    <string name="pref_cat_charging_indicator" formatted="false">Charging Indicator</string>
+    <string name="pref_indicate_charging" formatted="false">Indicate Charging</string>
+    <string name="pref_indicate_charging_summary" formatted="false">Alter icon to indicate when charging?</string>
+    <string name="pref_indicate_charging_help" formatted="false">    Some icon sets indicate when the battery is being charged, for
+    example by showing a lightning bolt below the number.  Disable
+    this setting if you would prefer it not to do that.</string>
+    <string name="pref_cat_logging" formatted="false">Logging</string>
+    <string name="pref_enable_logging" formatted="false">Enable Logging</string>
+    <string name="pref_enable_logging_summary" formatted="false">Log battery state changes?</string>
+    <string name="pref_enable_logging_help" formatted="false">    If enabled, BatteryBot will log battery state changes.</string>
+    <string name="pref_max_log_age" formatted="false">Maximum Log Age</string>
+    <string name="pref_max_log_age_summary" formatted="false">Delete logs older than:</string>
+    <string name="pref_max_log_age_help" formatted="false">    If logging is enabled, then whenever you plug in your device, logs
+    older than this will be deleted.</string>
+    <string name="pref_cat_keyguard" formatted="false">Lock Screen / Keyguard</string>
+    <string name="pref_cat_keyguard_help" formatted="false">    Android allows apps to disable and reenable what it calls the
+    \"keyguard\", which you probably think of as the lock screen.
+    Beyond simply disabling and reenabling it, however, there is no
+    more control — I can\'t control which keys turn the screen on, for
+    example.</string>
+    <string name="pref_notify_when_kg_disabled" formatted="false">Notify When Disabled</string>
+    <string name="pref_notify_when_kg_disabled_summary" formatted="false">Indicate when lock screen is disabled? </string>
+    <string name="pref_notify_when_kg_disabled_help" formatted="false">    If checked, a separate notification will be shown indicating when
+    the app is disabling the lock screen.</string>
+    <string name="pref_confirm_manual_disable" formatted="false">Confirm Manual Disable</string>
+    <string name="pref_confirm_manual_disable_summary" formatted="false">Confirm when manually disabling lock screen?</string>
+    <string name="pref_confirm_manual_disable_help" formatted="false">    If checked, a confirmation dialog will pop up when you try to
+    manually disable the lock screen.  This is primarily intended to
+    prevent new users from accidentally disabling their lock screen
+    without knowing it.  If you disable the lock screen with any
+    regularity, you\'ll probably want to turn this off.</string>
+    <string name="pref_finish_after_toggle_lock" formatted="false">Exit After Toggling</string>
+    <string name="pref_finish_after_toggle_lock_summary" formatted="false">Exit main window immediately after dis/reenabling?</string>
+    <string name="pref_finish_after_toggle_lock_help" formatted="false">    If you\'re someone for whom every keystroke (or touchscreen press)
+    matters, you\'ll probably want to enable this.  If your goal is to
+    simply disable or reenable the lock screen and then get back to
+    what you\'re doing, this keeps you from having to press the BACK
+    key.  Just pull down the notification bar, press on BatteryBot,
+    and press the button to toggle the lock screen: three
+    screen presses and you\'re back to what you were doing.\n
+
+    \nFor obvious reasons, you can only enable this if the previous
+    setting is disabled, and vice versa.</string>
+    <string name="pref_auto_disable" formatted="false">Auto-disable Lock Screen</string>
+    <string name="pref_auto_disable_summary" formatted="false">Disable the lock screen when charging?</string>
+    <string name="pref_auto_disable_help" formatted="false">    If checked, then whenever the device is plugged in, BatteryBot
+    with disable the lock screen, and whenever the device is
+    unplugged, it will enable it again.\n
+
+    \nNote that with this option enabled, you will still have to
+    manually pass through the lock screen once before it will be
+    auto-disabled.</string>
+    <string name="pref_disallow_disable_lock_screen" formatted="false">Disallow Manual Disable</string>
+    <string name="pref_disallow_disable_lock_screen_summary" formatted="false">Disallow use of the disable lock screen button?</string>
+    <string name="pref_disallow_disable_lock_screen_help" formatted="false">    If you have an alternative lock screen that allows access to the
+    notification tray when the screen is locked, you might want to
+    enabled this option for security reasons.</string>
+    <string name="pref_notify_status_duration" formatted="false">Show Status Duration</string>
+    <string name="pref_notify_status_duration_summary" formatted="false">Show time since status changed rather than estimate of time remaining?</string>
+    <string name="pref_notify_status_duration_help" formatted="false">    Enable this setting if you\'d prefer the main notification to show
+    the time since the status changed (e.g., \"Unplugged for 5
+    hours\") rather than the estimate of time remaining.  Both pieces
+    of information are available from the main window.</string>
+    <string name="pref_cat_battery_use" formatted="false">Battery Use</string>
+    <string name="pref_finish_after_battery_use" formatted="false">Exit After Launching</string>
+    <string name="pref_finish_after_battery_use_summary" formatted="false">Exit main window immediately after launching Battery Use?</string>
+    <string name="pref_finish_after_battery_use_help" formatted="false">    If you\'re someone for whom every keystroke (or touchscreen press)
+    matters, you might want to enable this.  Enabling this preserves
+    the old behavior of closing BatteryBot\'s main window
+    immediately after launching the Battery Use screen.</string>
+    <string name="pref_cat_temperature_unit" formatted="false">Temperature Unit</string>
+    <string name="pref_convert_to_fahrenheit" formatted="false">Convert to Fahrenheit</string>
+    <string name="pref_convert_to_fahrenheit_help" formatted="false">    Android reports the battery temperature in degrees Celsius.  If
+    you prefer to see the battery temperature in degrees Fahrenheit,
+    check this option, and the app will convert for you.</string>
+    <string name="pref_cat_autostart" formatted="false">Autostart</string>
+    <string name="pref_autostart_at_boot" formatted="false">Autostart at Boot</string>
+    <string name="pref_autostart_at_boot_summary" formatted="false">Start BatteryBot when device boots:</string>
+    <string name="pref_autostart_at_boot_help" formatted="false">    Controls whether BatteryBot should start itself
+    automatically when the device boots up.\n
+
+    \nThe \"If Running on Shutdown\" option works with regard to
+    whether you\'ve most recently manually started or stopped BatteryBot.
+    So if you kill BatteryBot through some other
+    means, like a task killer, then BatteryBot doesn\'t know
+    you stopped it, and it will still start at boot up if you have it
+    set to this.</string>
+    <string name="lang_system_selected" formatted="false">System-selected</string>
+    <string name="pref_cat_language" formatted="false">Language</string>
+    <string name="pref_language_override" formatted="false">Language Override</string>
+    <string name="pref_language_override_summary" formatted="false">Select language:</string>
+    <string name="pref_language_override_help" formatted="false">    If the translation to your language is incomplete or inaccurate
+    and you would prefer another, possibly better translation, you may
+    choose to do so here.</string>
+    <string name="pref_cat_plugin_settings" formatted="false">Plugin Settings</string>
+    <string name="pref_plugin_settings" formatted="false">Plugin Settings</string>
+    <string name="pref_plugin_settings_summary" formatted="false">Edit settings for this plugin</string>
+    <string name="pref_cat_color" formatted="false">Icon Color</string>
+    <string name="pref_cat_color_help" formatted="false">    In order to keep the binary package for BatteryBot
+    reasonably small, there are some limitations for the colors.  At
+    the time of writing, you can have a red icon as high as 30%, an
+    amber icon as high as 50%, and a green icon as low as 20%.  I
+    think these are reasonable compromises that should work for 99% of
+    users.\n
+
+    \nTo give you maximum control, the colors can be turned on or off
+    independently.  This means that you can have as much as a
+    four-tiered color scheme, where the icon is green when it is very
+    full, then grayscale, then amber, then red.  Of course, most
+    people probably have the amber and green thresholds set to the
+    same value, so that the icon is never grayscale.</string>
+    <string name="pref_color_preview" formatted="false">Color Preview</string>
+    <string name="pref_color_preview_help" formatted="false">    The color preview will hopefully make it really easy to visualize
+    what effect your color settings will have.\n
+
+    \nThis doesn\'t exist in 10% mode, because it just wouldn\'t make
+    sense.</string>
+    <string name="pref_red" formatted="false">Use Red Icon</string>
+    <string name="pref_red_summary" formatted="false">Use red icon when charge is low?</string>
+    <string name="pref_red_help" formatted="false">    Whether or not to use a red icon below the specified threshold.</string>
+    <string name="pref_red_thresh" formatted="false">Red Threshold</string>
+    <string name="pref_red_thresh_summary" formatted="false">Red icon below what charge percentage:</string>
+    <string name="pref_red_thresh_summary10" formatted="false">Red icon at or below what charge percentage:</string>
+    <string name="pref_red_thresh_help" formatted="false">Specifies the charge level which
+    the icon should turn red below (or <i>at</i>, in 10% Mode).\n
+
+    \nThe options for the red threshold include all the values (in
+    multiples of 5) for which there are red icons available.\n
+
+    \nIn 10% Mode, things work slightly differently but should be
+    self-explanatory.</string>
+    <string name="pref_amber" formatted="false">Use Amber Icon</string>
+    <string name="pref_amber_summary" formatted="false">Use amber icon when charge is medium?</string>
+    <string name="pref_amber_help" formatted="false">    Whether or not to use an amber icon below the specified threshold.</string>
+    <string name="pref_amber_thresh" formatted="false">Amber Threshold</string>
+    <string name="pref_amber_thresh_summary" formatted="false">Amber icon below what charge percentage:</string>
+    <string name="pref_amber_thresh_summary10" formatted="false">Amber icon at or below what charge percentage:</string>
+    <string name="pref_amber_thresh_help" formatted="false">Specifies the charge level
+    which the icon should turn amber below (or <i>at</i>, in 10%
+    Mode).\n
+
+    \nThe options for the amber threshold include all the values (in
+    multiples of 5) for which there are amber icons available,
+    starting 5 percentage points above the red threshold (if there is
+    one).  For example, if you have the red threshold set to 15, then
+    your lowest option here will be 20.\n
+
+    \nIn 10% Mode, things work slightly differently but should be
+    self-explanatory.</string>
+    <string name="pref_green" formatted="false">Use Green Icon</string>
+    <string name="pref_green_summary" formatted="false">Use green icon when charge is high?</string>
+    <string name="pref_green_help" formatted="false">    Whether or not to use a green icon at or above the specified threshold.</string>
+    <string name="pref_green_thresh" formatted="false">Green Threshold</string>
+    <string name="pref_green_thresh_summary" formatted="false">Green icon at or above what charge percentage:</string>
+    <string name="pref_green_thresh_help" formatted="false">Specifies the charge level
+    which the icon should be green at or above.\n
+
+    \nThe options for the green threshold include all the values (in
+    multiples of 5) for which there are green icons available,
+    starting at the highest active threshold you have set for red or
+    amber.  For example, if you have the amber threshold set to 40,
+    then your lowest option here will be 40.\n
+
+    \nIn 10% Mode, things work slightly differently but should be
+    self-explanatory.</string>
+    <string name="pref_cat_device_specific" formatted="false">Device Specific Settings</string>
+    <!-- string name="pref_cat_device_specific_help"></string -->
+    <string name="pref_ten_percent_mode" formatted="false">10% Mode</string>
+    <string name="pref_ten_percent_mode_summary" formatted="false">Read the help first!</string>
+    <string name="pref_ten_percent_mode_help" formatted="false"><b>Note:</b>    Checking or unchecking this will reset your icon color settings!\n
+
+    \nThis setting cleans up the Icon Color settings to make more sense
+    on devices that only show their charge level in 10% increments.
+    According to user reports, that includes these devices:\n
+
+    \n• Motorola Droid (original)
+    \n• Motorola Droid X
+    \n• Motorola Droid 2
+    \n• Motorola Defy
+    \n• Samsung Moment\n
+
+    \nAs far as I\'m aware, all other devices report every 1%, and so
+    should <i>not</i> turn this on.</string>
+    <string name="alarms_overview" formatted="false">Alarms Overview</string>
+    <string name="alarms_overview_help" formatted="false">    This page allows you to add new alarms, quickly enable or disable
+    existing alarms, or delete alarms.\n
+
+    \nTo add a new alarm, press \"Add alarm\" — this will create a new
+    alarm and take you to the alarm settings page, where you can
+    control the settings for the new alarm.  See the help on that page
+    for more details.\n
+
+    \nBelow the \"Add alarm\" button is a list of any alarms you have
+    created.\n
+
+    \n• To edit an existing alarm, just press it.
+    \n• To delete an alarm, long-press it, then select \"Delete
+    Alarm\".  (You can also delete an alarm from the individual alarm
+    settings page by pressing MENU then \"Delete Alarm\".)
+    \n• To quickly toggle whether an alarm is enabled, press the alarm
+    clock icon to the left of the alarm text.  (You can also enable or
+    disable an alarm from the individual alarm settings page.)</string>
+    <string name="pref_alarm_enabled" formatted="false">Enable Alarm</string>
+    <!-- string name="pref_alarm_enabled_summary"></string -->
+    <string name="pref_alarm_enabled_help" formatted="false">If you want to temporarily
+  disable an alarm without having to recreate it when you want it
+  again, you can turn it off and on either here or on the main alarms
+  page.</string>
+    <string name="pref_cat_alarm_conditions" formatted="false">Alarm Conditions</string>
+    <string name="pref_cat_alarm_conditions_help" formatted="false">This is where you can
+  control what conditions trigger the alarm.</string>
+    <string name="pref_alarm_type" formatted="false">Alarm Type</string>
+    <string name="pref_alarm_type_summary" formatted="false">Trigger alarm when battery:</string>
+    <string name="pref_alarm_type_help" formatted="false">There are currently five types
+    of alarm that you can choose from.\n
+
+    \nThe \"Becomes fully charged\" alarm will notify you when the
+    status of your battery changes from \"Charging\" to \"Fully
+    Charged\".  Note that on many devices, this isn\'t necessarily the
+    same thing as being at 100% charge.\n
+
+    \nThe charge and temperature alarms require you to set a threshold
+    below, after choosing that alarm type.\n
+
+    \nThe \"Health Fails\" alarm will notify you if your battery health
+    becomes something other than \"Unknown\" or \"Good Health\", as
+    reported by Android.</string>
+    <string name="pref_alarm_threshold" formatted="false">Threshold</string>
+    <string name="alarm_pref_not_used" formatted="false">Not used for this alarm type</string>
+    <string name="pref_alarm_threshold_summary" formatted="false">Alarm threshold:</string>
+    <string name="pref_alarm_threshold_help" formatted="false">    For charge and temperature alarms, you need to set the temperature
+    or charge level that will trigger the alarm.</string>
+    <string name="pref_cat_notification_settings" formatted="false">Notification Settings</string>
+    <string name="pref_cat_notification_settings_help" formatted="false">This is where you
+  can control various aspects of the alarm notification that is
+  created to notify you when an alarm has been triggered.</string>
+    <string name="pref_alarm_ringtone" formatted="false">Ringtone</string>
+    <!-- string name="pref_alarm_ringtone_summary"></string -->
+    <string name="pref_alarm_ringtone_help" formatted="false">    Here you can control which sound to play when the alarm is
+    triggered.  Select \'Silent\' if you don\'t want a sound to be
+    played.</string>
+    <string name="silent" formatted="false">Silent</string>
+    <string name="pref_alarm_vibrate" formatted="false">Vibrate</string>
+    <!-- string name="pref_alarm_vibrate_summary"></string -->
+    <string name="pref_alarm_vibrate_help" formatted="false">    If all goes well, setting this option will make the device vibrate
+    when the alarm is triggered, unless the device is in Silent Mode,
+    unless you have the device set up to vibrate even in Silent Mode.
+    In other words, it should do what you expect.  Please email me if
+    something goes astray.</string>
+    <string name="pref_alarm_lights" formatted="false">Flash Lights</string>
+    <!-- string name="pref_alarm_lights_summary"></string -->
+    <string name="pref_alarm_lights_help" formatted="false">    Sets whether the notification should enable the device\'s default
+    lights.  This generally flashes an LED or trackball.  Note that
+    every Android device I\'ve used has been slightly buggy in this
+    department.  If you have this checked, then the notification will
+    request Android to flash lights, but it might not always actually
+    happen.</string>
+    <string name="boot_pref_always" formatted="false">Always</string>
+    <string name="boot_pref_never" formatted="false">Never</string>
+    <string name="boot_pref_if_running" formatted="false">If running on shutdown</string>
+    <string name="status_dur_always" formatted="false">Always</string>
+    <string name="status_dur_after_1h" formatted="false">After 1 hour</string>
+    <string name="status_dur_after_2h" formatted="false">After 2 hours</string>
+    <string name="status_dur_after_3h" formatted="false">After 3 hours</string>
+    <string name="status_dur_after_6h" formatted="false">After 6 hours</string>
+    <string name="status_dur_after_12h" formatted="false">After 12 hours</string>
+    <string name="age_1_day" formatted="false">1 day</string>
+    <string name="age_2_days" formatted="false">2 days</string>
+    <string name="age_4_days" formatted="false">4 days</string>
+    <string name="age_1_week" formatted="false">1 week</string>
+    <string name="age_2_weeks" formatted="false">2 weeks</string>
+    <string name="age_3_weeks" formatted="false">3 weeks</string>
+    <string name="age_4_weeks" formatted="false">4 weeks</string>
+    <string name="notification_priority_max" formatted="false">Maximum</string>
+    <string name="notification_priority_high" formatted="false">High</string>
+    <string name="notification_priority_default" formatted="false">Default</string>
+    <string name="notification_priority_low" formatted="false">Low</string>
+    <string name="notification_priority_min" formatted="false">Minimum</string>
+    <string name="icon_set_classic" formatted="false">Classic</string>
+    <string name="icon_set_plain" formatted="false">Plain Number</string>
+    <string name="icon_set_smaller" formatted="false">Smaller Number</string>
 
 </resources>

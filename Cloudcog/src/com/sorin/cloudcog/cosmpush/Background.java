@@ -164,8 +164,10 @@ public class Background extends Service {
 
 	@Override
 	public void onDestroy() {
-		// code to execute when the service is shutting down
+
 		super.onDestroy();
+
+		Background.this.stopSelf();
 	}
 
 	@Override

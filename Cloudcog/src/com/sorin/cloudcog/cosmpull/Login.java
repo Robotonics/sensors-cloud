@@ -369,10 +369,8 @@ public class Login extends Activity {
 			break;
 		case R.id.action_nfc:
 
-			startActivityForResult(
-					new Intent(
-							android.provider.Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS),
-					0);
+			startActivityForResult(new Intent(
+					android.provider.Settings.ACTION_NFC_SETTINGS), 0);
 			Toast.makeText(this, "Beam NFC Tag", Toast.LENGTH_SHORT).show();
 
 			break;

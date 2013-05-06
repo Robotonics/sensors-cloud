@@ -29,7 +29,7 @@ public class PhoneTabFragmentHandler extends FragmentPagerAdapter implements
 		Fragment pageFragment;
 		switch (position) {
 		case 0:
-			pageFragment = new PhoneBatteryLevelFragment();
+			pageFragment = new PhoneDataFragment();
 			break;
 		case 1:
 			pageFragment = new PhoneDataFragment();

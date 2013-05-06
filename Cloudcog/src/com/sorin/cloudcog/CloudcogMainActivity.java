@@ -30,6 +30,7 @@ import com.sorin.cloudcog.geolocation.GeoLocationActivity;
 import com.sorin.cloudcog.ioio.IOIOGraphActivity;
 import com.sorin.cloudcog.mqtt.push.MqttActivity;
 import com.sorin.cloudcog.phone.PhoneMainFragmentActivity;
+import com.sorin.cloudcog.phone.batterymeter.BatteryInfoActivity;
 
 public class CloudcogMainActivity extends Activity {
 	private ImageButton btnCarSensors;
@@ -44,8 +45,8 @@ public class CloudcogMainActivity extends Activity {
 	private SensorManager mSensorManager;
 	private Sensor mAccelerometer;
 	private ShakeDetectorActivity mShakeDetector;
-	
-//	nfc fucntionality
+
+	// nfc fucntionality
 	private NdefMessage mMessage;
 	private NfcAdapter nfcAdapter;
 
@@ -173,7 +174,7 @@ public class CloudcogMainActivity extends Activity {
 					@Override
 					public void run() {
 						Intent intent = new Intent(CloudcogMainActivity.this,
-								PhoneMainFragmentActivity.class);
+								BatteryInfoActivity.class);
 
 						startActivity(intent);
 
@@ -193,7 +194,7 @@ public class CloudcogMainActivity extends Activity {
 					public void run() {
 						Intent intent = new Intent(CloudcogMainActivity.this,
 								CarMainFragmentActivitySilver.class);
-						CloudcogMainActivity.this.finish();
+
 						startActivity(intent);
 
 					}
@@ -265,6 +266,16 @@ public class CloudcogMainActivity extends Activity {
 		 * the following switch statement will execute based on chosen optio and
 		 * will trigger the appropriate intents
 		 */
+		case R.id.menu_rate_and_review:
+			try {
+				startActivity(new Intent(Intent.ACTION_VIEW,
+						Uri.parse("market://details?id=com.sorin.cloudcog")));
+			} catch (Exception e) {
+				Toast.makeText(this.getApplicationContext(),
+						"Sorry, can't launch Market!", Toast.LENGTH_SHORT)
+						.show();
+			}
+			return true;
 		case R.id.action_geolocation:
 
 			startActivity(new Intent(this, GeoLocationActivity.class));
@@ -272,8 +283,8 @@ public class CloudcogMainActivity extends Activity {
 			break;
 		case R.id.action_nfc:
 
-			// startActivityForResult(new Intent(
-			// android.provider.Settings.ACTION_NFC_SETTINGS), 0);
+			startActivityForResult(new Intent(
+					android.provider.Settings.ACTION_NFC_SETTINGS), 0);
 
 			Toast.makeText(this, "Beam NFC Tag", Toast.LENGTH_SHORT).show();
 

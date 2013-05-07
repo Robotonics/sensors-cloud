@@ -15,13 +15,11 @@
 package com.sorin.cloudcog.phone.batterymeter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.preference.SwitchPreference;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -29,17 +27,15 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
-import android.widget.Switch;
 
-import com.sorin.cloudcog.CloudcogMainActivity;
 import com.sorin.cloudcog.R;
 import com.sorin.cloudcog.ShakeDetectorActivity;
 import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
-import com.sorin.cloudcog.car.view.CarMainFragmentActivityRuby;
 
 public class BatteryInfoActivity extends FragmentActivity {
 	private BatteryInfoPagerAdapter pagerAdapter;
 	private ViewPager viewPager;
+
 	public static CurrentInfoFragment currentInfoFragment;
 	public static LogViewFragment logViewFragment;
 	private long startMillis;
@@ -155,14 +151,15 @@ public class BatteryInfoActivity extends FragmentActivity {
 			}
 		}
 
-		@Override
 		public CharSequence getPageTitle(int position) {
-			if (position == 1)
+			if (position == 1) {
 				return res.getString(R.string.tab_current_info).toUpperCase();
-			else
+			} else {
 				return res.getString(R.string.tab_history).toUpperCase();
+
+			}
+
 		}
 
 	}
-
 }

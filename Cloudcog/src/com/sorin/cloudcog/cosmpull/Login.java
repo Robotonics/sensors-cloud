@@ -38,7 +38,7 @@ import com.sorin.cloudcog.R;
 import com.sorin.cloudcog.ShakeDetectorActivity;
 import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
-import com.sorin.cloudcog.geolocation.GeoLocationActivity;
+import com.sorin.cloudcog.geolocation.MapRouteActivity;
 
 @SuppressWarnings({ "unused", "deprecation" })
 public class Login extends Activity {
@@ -365,7 +365,7 @@ public class Login extends Activity {
 		 */
 		case R.id.action_geolocation:
 
-			startActivity(new Intent(this, GeoLocationActivity.class));
+			startActivity(new Intent(this, MapRouteActivity.class));
 			break;
 		case R.id.action_nfc:
 

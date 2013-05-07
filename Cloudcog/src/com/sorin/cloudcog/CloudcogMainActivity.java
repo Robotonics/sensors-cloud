@@ -7,9 +7,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.net.Uri;
 import android.nfc.NdefMessage;
-import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
-import android.nfc.NfcEvent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -22,14 +20,12 @@ import android.widget.Toast;
 
 import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
 import com.sorin.cloudcog.arduino.ArduinoGraphActivity;
-import com.sorin.cloudcog.car.view.CarMainFragmentActivityRuby;
 import com.sorin.cloudcog.car.view.CarMainFragmentActivitySilver;
 import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
-import com.sorin.cloudcog.geolocation.GeoLocationActivity;
+import com.sorin.cloudcog.geolocation.MapRouteActivity;
 import com.sorin.cloudcog.ioio.IOIOGraphActivity;
 import com.sorin.cloudcog.mqtt.push.MqttActivity;
-import com.sorin.cloudcog.phone.PhoneMainFragmentActivity;
 import com.sorin.cloudcog.phone.batterymeter.BatteryInfoActivity;
 
 public class CloudcogMainActivity extends Activity {
@@ -179,7 +175,7 @@ public class CloudcogMainActivity extends Activity {
 						startActivity(intent);
 
 					}
-				}, 392);
+				}, 380);
 			}
 		});
 
@@ -198,7 +194,7 @@ public class CloudcogMainActivity extends Activity {
 						startActivity(intent);
 
 					}
-				}, 385);
+				}, 380);
 
 			}
 		});
@@ -278,7 +274,7 @@ public class CloudcogMainActivity extends Activity {
 			return true;
 		case R.id.action_geolocation:
 
-			startActivity(new Intent(this, GeoLocationActivity.class));
+			startActivity(new Intent(this, MapRouteActivity.class));
 
 			break;
 		case R.id.action_nfc:

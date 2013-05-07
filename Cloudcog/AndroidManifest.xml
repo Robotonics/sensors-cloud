@@ -182,7 +182,7 @@
         <!-- Cosm Pull activities end -->
         <activity android:name="com.sorin.cloudcog.mqtt.push.MqttActivity" >
         </activity>
-        <activity android:name="com.sorin.cloudcog.geolocation.GeoLocationActivity" >
+        <activity android:name="com.sorin.cloudcog.geolocation.MapRouteActivity" >
         </activity>
         <activity
             android:name="com.sorin.cloudcog.car.view.CarMainFragmentActivitySilver"
@@ -190,10 +190,6 @@
         </activity>
         <activity
             android:name="com.sorin.cloudcog.car.view.CarMainFragmentActivityRuby"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.sorin.cloudcog.phone.PhoneMainFragmentActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity

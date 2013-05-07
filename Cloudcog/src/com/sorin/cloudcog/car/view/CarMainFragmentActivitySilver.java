@@ -12,13 +12,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.sorin.cloudcog.CloudcogMainActivity;
 import com.sorin.cloudcog.R;
 import com.sorin.cloudcog.ShakeDetectorActivity;
 import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
 import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
-import com.sorin.cloudcog.geolocation.GeoLocationActivity;
+import com.sorin.cloudcog.geolocation.MapRouteActivity;
 import com.viewpagerindicator.PageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
 
@@ -96,7 +95,7 @@ public class CarMainFragmentActivitySilver extends FragmentActivity {
 		 */
 		case R.id.action_geolocation:
 
-			startActivity(new Intent(this, GeoLocationActivity.class));
+			startActivity(new Intent(this, MapRouteActivity.class));
 
 			break;
 		// starts the ruby red gauges main fragment activity

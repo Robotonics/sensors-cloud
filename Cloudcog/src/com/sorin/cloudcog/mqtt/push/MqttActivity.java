@@ -12,11 +12,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.sorin.cloudcog.CloudcogMainActivity;
 import com.sorin.cloudcog.R;
 import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
-import com.sorin.cloudcog.geolocation.GeoLocationActivity;
+import com.sorin.cloudcog.geolocation.MapRouteActivity;
 
 public class MqttActivity extends Activity {
 
@@ -105,7 +104,7 @@ public class MqttActivity extends Activity {
 
 		case R.id.action_geolocation:
 
-			startActivity(new Intent(this, GeoLocationActivity.class));
+			startActivity(new Intent(this, MapRouteActivity.class));
 			Toast.makeText(this, "Geolocation services", Toast.LENGTH_SHORT)
 					.show();
 			break;

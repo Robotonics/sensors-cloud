@@ -118,6 +118,7 @@
     <string name="none" formatted="false">None</string>
     <string name="tab_current_info" formatted="false">Battery%</string>
     <string name="tab_history" formatted="false">Battery Log</string>
+   <string name="phone_location" formatted="false">Phone Location</string>
     <string name="notification_until_charged" formatted="false">" until charged"</string>
     <string name="notification_until_drained" formatted="false">" left"</string>
     <string name="activity_until_charged" formatted="false">until charged</string>

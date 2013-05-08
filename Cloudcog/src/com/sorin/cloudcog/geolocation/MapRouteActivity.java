@@ -359,7 +359,7 @@ public class MapRouteActivity extends FragmentActivity implements
 				// Adding all the points in the route to LineOptions
 				lineOptions.addAll(points);
 				lineOptions.width(7);
-				lineOptions.color(Color.MAGENTA);
+				lineOptions.color(R.color.blue);
 
 			}
 
@@ -399,16 +399,12 @@ public class MapRouteActivity extends FragmentActivity implements
 		// Showing the current location in Google Map
 		map.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
-		// draw marker
-		Marker cosmMarker = map.addMarker(new MarkerOptions()
-				.position(latLng)
-				.title("Cosm Feed")
-				.snippet("This is the current location of the Feed")
-
-				.icon(BitmapDescriptorFactory
-						.fromResource(R.drawable.map_marker)));
-		cosmMarker.showInfoWindow();
-
+		/**
+		 * draw marker // Marker cosmMarker = map.addMarker(new //
+		 * MarkerOptions().position(latLng) // .title("Cosm Feed") //
+		 * .snippet("This is the current location of the Feed") // // ); //
+		 * cosmMarker.showInfoWindow();
+		 */
 		// Zoom in the Google Map
 		map.animateCamera(CameraUpdateFactory.zoomTo(15));
 		locationManager.removeUpdates(this);

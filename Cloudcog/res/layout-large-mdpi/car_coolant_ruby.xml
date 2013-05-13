@@ -24,12 +24,11 @@
 
         <TextView
             android:id="@+id/CoolantView"
-                android:layout_marginLeft="51dp"
-            android:layout_marginTop="87dp"
             android:layout_width="51dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ruby_fuel_needle"
-
+            android:layout_marginLeft="51dp"
+            android:layout_marginTop="87dp"
             android:layout_toRightOf="@+id/ruby_intake_needle"
             android:background="@drawable/background_gauge_counter"
             android:gravity="center"
@@ -59,7 +58,6 @@
             android:text="@string/zero"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#2A0A0A" />
-
     </RelativeLayout>
 
     <LinearLayout

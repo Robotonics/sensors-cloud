@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.net.Uri;
-import android.nfc.NdefMessage;
-import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -20,6 +18,7 @@ import android.widget.Toast;
 
 import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
 import com.sorin.cloudcog.arduino.ArduinoGraphActivity;
+import com.sorin.cloudcog.car.obd2.BluetoothChatActivity;
 import com.sorin.cloudcog.car.view.CarMainFragmentActivitySilver;
 import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
@@ -42,10 +41,6 @@ public class CloudcogMainActivity extends Activity {
 	private Sensor mAccelerometer;
 	private ShakeDetectorActivity mShakeDetector;
 
-	// nfc fucntionality
-	private NdefMessage mMessage;
-	private NfcAdapter nfcAdapter;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -61,6 +56,7 @@ public class CloudcogMainActivity extends Activity {
 			@Override
 			public void onShake(int count) {
 				// Closes main activity when shaking phone
+
 				CloudcogMainActivity.this.finish();
 
 			}
@@ -189,7 +185,7 @@ public class CloudcogMainActivity extends Activity {
 					@Override
 					public void run() {
 						Intent intent = new Intent(CloudcogMainActivity.this,
-								CarMainFragmentActivitySilver.class);
+								BluetoothChatActivity.class);
 
 						startActivity(intent);
 
@@ -243,9 +239,10 @@ public class CloudcogMainActivity extends Activity {
 
 	@Override
 	public void onPause() {
+		super.onPause();
 		// Add the following line to unregister the Sensor Manager onPause
 		mSensorManager.unregisterListener(mShakeDetector);
-		super.onPause();
+
 	}
 
 	// Inflate the menu; this adds items to the action bar if it is present.
@@ -326,22 +323,6 @@ public class CloudcogMainActivity extends Activity {
 
 			break;
 
-		case R.id.action_cosm_push:
-			startActivity(new Intent(this, CosmAndroidResourcesActivity.class));
-			Toast.makeText(this, "Push live data to Cosm", Toast.LENGTH_SHORT)
-					.show();
-
-			break;
-
-		case R.id.action_cosm_pull:
-
-			Intent mainIntent = new Intent(CloudcogMainActivity.this,
-					Login.class);
-			mainIntent.putExtra("flag", "true");
-			CloudcogMainActivity.this.startActivity(mainIntent);
-			Toast.makeText(this, "Pull live data from Cosm", Toast.LENGTH_SHORT)
-					.show();
-			return true;
 		default:
 
 			break;

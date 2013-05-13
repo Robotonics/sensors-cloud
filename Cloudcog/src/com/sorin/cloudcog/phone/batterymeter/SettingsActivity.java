@@ -46,7 +46,7 @@ import com.sorin.cloudcog.R;
 
 public class SettingsActivity extends PreferenceActivity implements
 		OnSharedPreferenceChangeListener {
-	public static final String SETTINGS_FILE = "com.sorin.cloudcog_preferences";
+	public static final String SETTINGS_FILE = "com.darshancomputing.BatteryIndicatorPro_preferences";
 	public static final String SP_STORE_FILE = "sp_store";
 
 	public static final String KEY_NOTIFICATION_SETTINGS = "notification_settings";
@@ -245,9 +245,6 @@ public class SettingsActivity extends PreferenceActivity implements
 		return a;
 	}
 
-	private static final Object[] EMPTY_OBJECT_ARRAY = {};
-	private static final Class[] EMPTY_CLASS_ARRAY = {};
-
 	// private String oldLanguage = null;
 
 	public class MessageHandler extends Handler {
@@ -297,6 +294,7 @@ public class SettingsActivity extends PreferenceActivity implements
 		}
 	};
 
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -497,6 +495,7 @@ public class SettingsActivity extends PreferenceActivity implements
 			setTitle(subtitle);
 	}
 
+	@SuppressWarnings("deprecation")
 	private void setPrefScreen(int resource) {
 		addPreferencesFromResource(resource);
 

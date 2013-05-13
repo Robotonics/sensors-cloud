@@ -3,7 +3,7 @@
     <item
         android:id="@+id/phone_preferences"
         android:orderInCategory="300"
-        android:title="Preferences">
+        android:title="@string/preferences">
         <menu>
         </menu>
     </item>
@@ -11,26 +11,26 @@
         android:id="@+id/action_ruby_gauges"
         android:icon="@drawable/action_ruby_gauges"
         android:showAsAction="always"
-        android:title="Ruby Dark Style"/>
+        android:title="@string/ruby_dark_style"/>
     <item
         android:id="@+id/cloud_services"
         android:icon="@drawable/action_cloud_services"
         android:orderInCategory="200"
         android:showAsAction="always"
-        android:title="Cloud Services">
+        android:title="@string/cloud_services">
         <menu>
             <item
                 android:id="@+id/action_cosm_web"
                 android:icon="@drawable/action_cosm_web"
-                android:title="Cosm Web"/>
+                android:title="@string/cosm_web"/>
             <item
                 android:id="@+id/action_cosm_pull"
                 android:icon="@drawable/action_cosm_pull"
-                android:title="Cosm Pull"/>
+                android:title="@string/cosm_pull"/>
             <item
                 android:id="@+id/action_cosm_push"
                 android:icon="@drawable/action_cosm_push"
-                android:title="Cosm Push"/>
+                android:title="@string/cosm_push"/>
         </menu>
     </item>
     <item
@@ -38,33 +38,38 @@
         android:icon="@drawable/action_connections_handling"
         android:orderInCategory="200"
         android:showAsAction="always"
-        android:title="Connections Handling">
+        android:title="@string/connections_handling">
         <menu>
-               <item
+            <item
+                android:id="@+id/secure_connect_scan"
+                android:icon="@drawable/action_bluetooth"
+                android:showAsAction="always"
+                android:title="@string/secure_connect"/>
+            <item
                 android:id="@+id/action_nfc"
                 android:icon="@drawable/action_nfc"
                 android:showAsAction="always"
-                android:title="NFC Broadcast"/>
+                android:title="@string/nfc_broadcast"/>
             <item
                 android:id="@+id/action_location"
                 android:icon="@drawable/action_location_settings"
                 android:showAsAction="always"
-                android:title="Location"/>
+                android:title="@string/location"/>
             <item
                 android:id="@+id/action_bluetooth"
                 android:icon="@drawable/action_bluetooth"
                 android:showAsAction="always"
-                android:title="Bluetooth"/>
+                android:title="@string/bluetooth"/>
             <item
                 android:id="@+id/action_wifi"
                 android:icon="@drawable/action_wifi"
                 android:showAsAction="always"
-                android:title="Wifi"/>
+                android:title="@string/wifi"/>
             <item
                 android:id="@+id/action_usb"
                 android:icon="@drawable/action_usb"
                 android:showAsAction="always"
-                android:title="USB Debugging"/>
+                android:title="@string/usb_debugging"/>
         </menu>
     </item>
 

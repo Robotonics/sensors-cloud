@@ -212,12 +212,50 @@ public class CurrentInfoFragment extends Fragment {
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		super.onCreateOptionsMenu(menu, inflater);
 
-		inflater.inflate(R.menu.phone_main_menu, menu);
+		inflater.inflate(R.menu.phone_current_info_menu, menu);
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
+		case R.id.action_nfc:
+
+			startActivityForResult(new Intent(
+					android.provider.Settings.ACTION_NFC_SETTINGS), 0);
+
+			break;
+		case R.id.action_usb:
+			startActivityForResult(
+					new Intent(
+							android.provider.Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS),
+					0);
+
+			break;
+		case R.id.action_wifi:
+
+			startActivityForResult(new Intent(
+					android.provider.Settings.ACTION_WIFI_SETTINGS), 0);
+
+			break;
+		case R.id.action_location:
+
+			startActivityForResult(new Intent(
+					android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS),
+					0);
+
+			break;
+
+		case R.id.action_bluetooth:
+			startActivityForResult(new Intent(
+					android.provider.Settings.ACTION_BLUETOOTH_SETTINGS), 0);
+
+			break;
+		case R.id.action_cosm_web:
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+					Uri.parse("http://www.cosm.com"));
+			startActivity(browserIntent);
+
+			break;
 		case R.id.menu_settings:
 			mStartActivity(SettingsActivity.class);
 			return true;
@@ -236,9 +274,11 @@ public class CurrentInfoFragment extends Fragment {
 						.show();
 			}
 			return true;
+
 		default:
-			return super.onOptionsItemSelected(item);
 		}
+
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override

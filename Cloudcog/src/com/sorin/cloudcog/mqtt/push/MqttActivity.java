@@ -4,7 +4,11 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.net.Uri;
+import android.nfc.NdefMessage;
+import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,13 +16,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.sorin.cloudcog.CloudcogMainActivity;
 import com.sorin.cloudcog.R;
+import com.sorin.cloudcog.ShakeDetectorActivity;
+import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
 import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
 import com.sorin.cloudcog.geolocation.MapRouteActivity;
 
 public class MqttActivity extends Activity {
+	// The following are used for the shake detection
+	private SensorManager mSensorManager;
+	private Sensor mAccelerometer;
+	private ShakeDetectorActivity mShakeDetector;
 
+	// nfc fucntionality
+	private NdefMessage mMessage;
+	private NfcAdapter nfcAdapter;
 	public static final String SERVICE_CLASSNAME = "de.eclipsemagazin.mqtt.push.MQTTService";
 	private Button button;
 
@@ -26,8 +40,25 @@ public class MqttActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.mqtt_main_view);
+
+		// ShakeDetector initialization
+		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		mAccelerometer = mSensorManager
+				.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+		mShakeDetector = new ShakeDetectorActivity();
 		Toast.makeText(this, "Mqtt Push Service on MQTT Broker",
 				Toast.LENGTH_SHORT).show();
+		mShakeDetector.setOnShakeListener(new OnShakeListener() {
+
+			@Override
+			public void onShake(int count) {
+				// Closes main activity when shaking phone
+
+				MqttActivity.this.finish();
+
+			}
+		});
+
 		button = (Button) findViewById(R.id.button1);
 		updateButton();
 
@@ -37,6 +68,17 @@ public class MqttActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		updateButton();
+		// Add the following line to register the Session Manager Listener
+		// onResume
+		mSensorManager.registerListener(mShakeDetector, mAccelerometer,
+				SensorManager.SENSOR_DELAY_UI);
+	}
+
+	@Override
+	public void onPause() {
+		// Add the following line to unregister the Sensor Manager onPause
+		mSensorManager.unregisterListener(mShakeDetector);
+		super.onPause();
 	}
 
 	private void updateButton() {
@@ -151,8 +193,6 @@ public class MqttActivity extends Activity {
 
 		case R.id.action_cosm_push:
 			startActivity(new Intent(this, CosmAndroidResourcesActivity.class));
-			Toast.makeText(this, "Push live data to Cosm", Toast.LENGTH_SHORT)
-					.show();
 
 			break;
 
@@ -161,8 +201,7 @@ public class MqttActivity extends Activity {
 			Intent mainIntent = new Intent(MqttActivity.this, Login.class);
 			mainIntent.putExtra("flag", "true");
 			MqttActivity.this.startActivity(mainIntent);
-			Toast.makeText(this, "Pull live data from Cosm", Toast.LENGTH_SHORT)
-					.show();
+
 			return true;
 		default:
 

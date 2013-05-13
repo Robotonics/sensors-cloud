@@ -21,10 +21,16 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -43,6 +49,15 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.sorin.cloudcog.R;
+import com.sorin.cloudcog.ShakeDetectorActivity;
+import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
+import com.sorin.cloudcog.car.view.CarMainFragmentActivityRuby;
+import com.sorin.cloudcog.car.view.CarTabFragmentHandlerSilver;
+import com.sorin.cloudcog.cosmpull.Login;
+import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
+import com.sorin.cloudcog.geolocation.MapRouteActivity;
+import com.viewpagerindicator.PageIndicator;
+import com.viewpagerindicator.TitlePageIndicator;
 
 /**
  * This is the main Activity that displays the current chat session.
@@ -50,7 +65,15 @@ import com.sorin.cloudcog.R;
  * @param <ImageView>
  */
 @SuppressLint("HandlerLeak")
-public class Obd2BluetoothChatActivity<ImageView> extends Activity {
+public class BluetoothChatActivity<ImageView> extends FragmentActivity {
+	// fragment management
+	CarTabFragmentHandlerSilver mSilverAdapter;
+	ViewPager mSilverPager;
+	PageIndicator mSilverIndicator;
+	// The following are used for the shake detection
+	private SensorManager mSensorManager;
+	private Sensor mAccelerometer;
+	private ShakeDetectorActivity mShakeDetector;
 	// Debugging
 	private static final String TAG = "BluetoothChat";
 	private static final boolean D = true;
@@ -85,17 +108,41 @@ public class Obd2BluetoothChatActivity<ImageView> extends Activity {
 	// Local Bluetooth adapter
 	private BluetoothAdapter mBluetoothAdapter = null;
 	// Member object for the chat services
-	private Obd2BluetoothChatService mChatService = null;
+	private BluetoothChatService mChatService = null;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-			if (D)
-				Log.e(TAG, "+++ ON CREATE +++");
+		if (D)
+			Log.e(TAG, "+++ ON CREATE +++");
 
 		// Set up the window layout
-		setContentView(R.layout.car_obd2_main);
+		setContentView(R.layout.car_pager_main_silver);
+		// toast message at begining of activity start
+		Toast.makeText(this, "Silver Light style OBD2 data console",
+				Toast.LENGTH_SHORT).show();
+		mSilverAdapter = new CarTabFragmentHandlerSilver(
+				getSupportFragmentManager());
+		mSilverPager = (ViewPager) findViewById(R.id.pager_silver);
+		mSilverPager.setAdapter(mSilverAdapter);
 
+		mSilverIndicator = (TitlePageIndicator) findViewById(R.id.indicator_silver);
+		mSilverIndicator.setViewPager(mSilverPager);
+
+		// When shacked it will return to main activity initialization
+		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		mAccelerometer = mSensorManager
+				.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+		mShakeDetector = new ShakeDetectorActivity();
+		mShakeDetector.setOnShakeListener(new OnShakeListener() {
+			// shake handler
+			@Override
+			public void onShake(int count) {
+
+				BluetoothChatActivity.this.finish();
+
+			}
+		});
 		// Get local Bluetooth adapter
 		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
@@ -132,7 +179,10 @@ public class Obd2BluetoothChatActivity<ImageView> extends Activity {
 		super.onResume();
 		if (D)
 			Log.e(TAG, "+ ON RESUME +");
-
+		// Add the following line to register the Session Manager Listener
+		// onResume
+		mSensorManager.registerListener(mShakeDetector, mAccelerometer,
+				SensorManager.SENSOR_DELAY_UI);
 		// Performing this check in onResume() covers the case in which BT was
 		// not enabled during onStart(), so we were paused to enable it...
 		// onResume() will be called when ACTION_REQUEST_ENABLE activity
@@ -140,7 +190,7 @@ public class Obd2BluetoothChatActivity<ImageView> extends Activity {
 		if (mChatService != null) {
 			// Only if the state is STATE_NONE, do we know that we haven't
 			// started already
-			if (mChatService.getState() == Obd2BluetoothChatService.STATE_NONE) {
+			if (mChatService.getState() == BluetoothChatService.STATE_NONE) {
 				// Start the Bluetooth chat services
 				mChatService.start();
 			}
@@ -155,7 +205,7 @@ public class Obd2BluetoothChatActivity<ImageView> extends Activity {
 
 		// Initialize the array adapter for the conversation thread
 		mConversationArrayAdapter = new ArrayAdapter<String>(this,
-				R.layout.car_obd2_message);
+				R.layout.message);
 		mConversationView = (ListView) findViewById(R.id.in);
 		mConversationView.setAdapter(mConversationArrayAdapter);
 
@@ -174,7 +224,7 @@ public class Obd2BluetoothChatActivity<ImageView> extends Activity {
 		 */
 
 		// Initialize the BluetoothChatService to perform bluetooth connections
-		mChatService = new Obd2BluetoothChatService(this, mHandler);
+		mChatService = new BluetoothChatService(this, mHandler);
 
 		// Initialize the buffer for outgoing messages
 		mOutStringBuffer = new StringBuffer("");
@@ -214,7 +264,7 @@ public class Obd2BluetoothChatActivity<ImageView> extends Activity {
 
 	public void getData(int messagenumber) {
 
-		final TextView TX = (TextView) findViewById(R.id.TXView2);
+		final TextView TX = (TextView) findViewById(R.id.silver_TXView2);
 
 		switch (messagenumber) {
 
@@ -258,7 +308,7 @@ public class Obd2BluetoothChatActivity<ImageView> extends Activity {
 
 	public void clearCodes() {
 
-		final TextView TX = (TextView) findViewById(R.id.TXView2);
+		final TextView TX = (TextView) findViewById(R.id.silver_TXView2);
 
 		if (mConnectedDeviceName != null) {
 
@@ -279,6 +329,9 @@ public class Obd2BluetoothChatActivity<ImageView> extends Activity {
 		super.onPause();
 		if (D)
 			Log.e(TAG, "- ON PAUSE -");
+		// Add the following line to unregister the Sensor Manager onPause
+		mSensorManager.unregisterListener(mShakeDetector);
+
 	}
 
 	@Override
@@ -316,7 +369,7 @@ public class Obd2BluetoothChatActivity<ImageView> extends Activity {
 	 */
 	private void sendMessage(String message) {
 		// Check that we're actually connected before trying anything
-		if (mChatService.getState() != Obd2BluetoothChatService.STATE_CONNECTED) {
+		if (mChatService.getState() != BluetoothChatService.STATE_CONNECTED) {
 			Toast.makeText(this, R.string.not_connected, Toast.LENGTH_SHORT)
 					.show();
 			return;
@@ -382,7 +435,7 @@ public class Obd2BluetoothChatActivity<ImageView> extends Activity {
 			final TextView coolantTemperature = (TextView) findViewById(R.id.CoolantView);
 			final TextView intakeTemperature = (TextView) findViewById(R.id.IntakeView);
 			final TextView voltage = (TextView) findViewById(R.id.voltView);
-			final TextView RX = (TextView) findViewById(R.id.RXView2);
+			final TextView RX = (TextView) findViewById(R.id.silver_RXView2);
 
 			// <-------- Initialize Needle Animations --------->//
 			final ImageView pointer;
@@ -392,12 +445,12 @@ public class Obd2BluetoothChatActivity<ImageView> extends Activity {
 			final ImageView pointer4;
 			final ImageView pointer5;
 			final ImageView pointer6;
-			pointer = (ImageView) findViewById(R.id.imageView1);
-			pointer1 = (ImageView) findViewById(R.id.ImageView2);
-			pointer2 = (ImageView) findViewById(R.id.ImageView3);
-			pointer3 = (ImageView) findViewById(R.id.ImageView4);
-			pointer4 = (ImageView) findViewById(R.id.ImageView5);
-			pointer5 = (ImageView) findViewById(R.id.ImageView6);
+			pointer = (ImageView) findViewById(R.id.rpm_needle);
+			pointer1 = (ImageView) findViewById(R.id.kmh_needle);
+			pointer2 = (ImageView) findViewById(R.id.engload_needle);
+			pointer3 = (ImageView) findViewById(R.id.coolant_needle);
+			pointer4 = (ImageView) findViewById(R.id.intake_needle);
+			pointer5 = (ImageView) findViewById(R.id.voltage_needle);
 
 			String dataRecieved;
 			int value = 0;
@@ -409,16 +462,16 @@ public class Obd2BluetoothChatActivity<ImageView> extends Activity {
 				if (D)
 					Log.i(TAG, "MESSAGE_STATE_CHANGE: " + msg.arg1);
 				switch (msg.arg1) {
-				case Obd2BluetoothChatService.STATE_CONNECTED:
+				case BluetoothChatService.STATE_CONNECTED:
 					setStatus(getString(R.string.title_connected_to,
 							mConnectedDeviceName));
 					mConversationArrayAdapter.clear();
 					break;
-				case Obd2BluetoothChatService.STATE_CONNECTING:
+				case BluetoothChatService.STATE_CONNECTING:
 					setStatus(R.string.title_connecting);
 					break;
-				case Obd2BluetoothChatService.STATE_LISTEN:
-				case Obd2BluetoothChatService.STATE_NONE:
+				case BluetoothChatService.STATE_LISTEN:
+				case BluetoothChatService.STATE_NONE:
 					setStatus(R.string.title_not_connected);
 					break;
 				}
@@ -917,7 +970,7 @@ public class Obd2BluetoothChatActivity<ImageView> extends Activity {
 	private void connectDevice(Intent data, boolean secure) {
 		// Get the device MAC address
 		String address = data.getExtras().getString(
-				Obd2DeviceListActivity.EXTRA_DEVICE_ADDRESS);
+				DeviceListActivity.EXTRA_DEVICE_ADDRESS);
 		// Get the BluetoothDevice object
 		BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address);
 		// Attempt to connect to the device
@@ -927,17 +980,23 @@ public class Obd2BluetoothChatActivity<ImageView> extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.car_obd2_menu, menu);
+		inflater.inflate(R.menu.car_silver_menu, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		Intent serverIntent = null;
+		/**
+		 * the following switch statements will execute based on chosen option
+		 * and will trigger the appropriate intents
+		 * 
+		 */
 		switch (item.getItemId()) {
+
 		case R.id.secure_connect_scan:
 			// Launch the DeviceListActivity to see devices and do scan
-			serverIntent = new Intent(this, Obd2DeviceListActivity.class);
+			serverIntent = new Intent(this, DeviceListActivity.class);
 			startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_SECURE);
 			return true;
 			/*
@@ -948,6 +1007,85 @@ public class Obd2BluetoothChatActivity<ImageView> extends Activity {
 			 * R.id.discoverable: // Ensure this device is discoverable by
 			 * others ensureDiscoverable(); return true;
 			 */
+
+		case R.id.action_geolocation:
+
+			startActivity(new Intent(this, MapRouteActivity.class));
+
+			break;
+		// starts the ruby red gauges main fragment activity
+		case R.id.action_ruby_gauges:
+			Intent rubyIntent = new Intent(this,
+					CarMainFragmentActivityRuby.class);
+			rubyIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			BluetoothChatActivity.this.finish();
+			startActivity(rubyIntent);
+
+			break;
+		case R.id.action_nfc:
+
+			startActivityForResult(new Intent(
+					android.provider.Settings.ACTION_NFC_SETTINGS), 0);
+			Toast.makeText(this, "Beam NFC Tag", Toast.LENGTH_SHORT).show();
+
+			break;
+		case R.id.action_usb:
+			startActivityForResult(
+					new Intent(
+							android.provider.Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS),
+					0);
+			Toast.makeText(this, "Turn On/Off USB debugging",
+					Toast.LENGTH_SHORT).show();
+
+			break;
+		case R.id.action_wifi:
+
+			startActivityForResult(new Intent(
+					android.provider.Settings.ACTION_WIFI_SETTINGS), 0);
+			Toast.makeText(this, "Manage wifi connection", Toast.LENGTH_SHORT)
+					.show();
+			break;
+		case R.id.action_location:
+
+			startActivityForResult(new Intent(
+					android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS),
+					0);
+			Toast.makeText(this, "Manage Location sources", Toast.LENGTH_SHORT)
+					.show();
+			break;
+
+		case R.id.action_bluetooth:
+			startActivityForResult(new Intent(
+					android.provider.Settings.ACTION_BLUETOOTH_SETTINGS), 0);
+			Toast.makeText(this, "Manage bluetooth connections",
+					Toast.LENGTH_SHORT).show();
+
+			break;
+		case R.id.action_cosm_web:
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+					Uri.parse("http://www.cosm.com"));
+			startActivity(browserIntent);
+			Toast.makeText(this, "Access your personal Cosm account",
+					Toast.LENGTH_SHORT).show();
+
+			break;
+
+		case R.id.action_cosm_push:
+			startActivity(new Intent(this, CosmAndroidResourcesActivity.class));
+
+			break;
+
+		case R.id.action_cosm_pull:
+
+			Intent mainIntent = new Intent(BluetoothChatActivity.this,
+					Login.class);
+			mainIntent.putExtra("flag", "true");
+			BluetoothChatActivity.this.startActivity(mainIntent);
+
+			return true;
+		default:
+
+			break;
 		}
 		return false;
 	}

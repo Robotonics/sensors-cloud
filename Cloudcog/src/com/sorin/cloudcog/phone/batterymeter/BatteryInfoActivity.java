@@ -15,10 +15,12 @@
 package com.sorin.cloudcog.phone.batterymeter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -27,10 +29,17 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.sorin.cloudcog.CloudcogMainActivity;
 import com.sorin.cloudcog.R;
 import com.sorin.cloudcog.ShakeDetectorActivity;
 import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
+import com.sorin.cloudcog.cosmpull.Login;
+import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
+import com.sorin.cloudcog.geolocation.MapRouteActivity;
 
 public class BatteryInfoActivity extends FragmentActivity {
 	private BatteryInfoPagerAdapter pagerAdapter;
@@ -162,4 +171,5 @@ public class BatteryInfoActivity extends FragmentActivity {
 		}
 
 	}
+
 }

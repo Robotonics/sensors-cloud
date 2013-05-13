@@ -15,11 +15,9 @@ import org.json.JSONObject;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.location.Criteria;
-import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
@@ -39,14 +37,11 @@ import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
-import com.sorin.cloudcog.CloudcogMainActivity;
 import com.sorin.cloudcog.R;
 import com.sorin.cloudcog.ShakeDetectorActivity;
 import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
-import com.sorin.cloudcog.car.view.CarMainFragmentActivityRuby;
 import com.sorin.cloudcog.cosmpull.CustomOverlay;
 import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
@@ -189,7 +184,7 @@ public class MapRouteActivity extends FragmentActivity implements
 					map.addMarker(options);
 
 					// Checks, whether start and end locations are captured
-					if (markerPoints.size() >= 2) {
+	if (markerPoints.size() >= 2) {
 						LatLng origin = markerPoints.get(0);
 						LatLng dest = markerPoints.get(1);
 

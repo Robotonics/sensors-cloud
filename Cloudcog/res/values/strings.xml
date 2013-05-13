@@ -93,7 +93,7 @@
     <string name="cancel" formatted="false">Cancel</string>
     <string name="confirm_close" formatted="false">Really Close?</string>
     <!-- app close dialog -->
-    <string name="confirm_close_hint" formatted="false">    BatteryBot will be completely closed, and you won\'t see it
+    <string name="confirm_close_hint" formatted="false">Phone battery monitoring background service will be completely closed, and you won\'t see it
     in your status bar any more.\n
 
     \nIf you just want to leave the main window and keep the indicator
@@ -118,7 +118,7 @@
     <string name="none" formatted="false">None</string>
     <string name="tab_current_info" formatted="false">Battery%</string>
     <string name="tab_history" formatted="false">Battery Log</string>
-   <string name="phone_location" formatted="false">Phone Location</string>
+    <string name="phone_location" formatted="false">Phone Location</string>
     <string name="notification_until_charged" formatted="false">" until charged"</string>
     <string name="notification_until_drained" formatted="false">" left"</string>
     <string name="activity_until_charged" formatted="false">until charged</string>
@@ -780,5 +780,19 @@
     <string name="icon_set_classic" formatted="false">Classic</string>
     <string name="icon_set_plain" formatted="false">Plain Number</string>
     <string name="icon_set_smaller" formatted="false">Smaller Number</string>
+    <string name="nfc_broadcast">NFC Broadcast</string>
+    <string name="location">Location</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="wifi">Wifi</string>
+    <string name="usb_debugging">USB Debugging</string>
+    <string name="connections_handling">Connections Handling</string>
+    <string name="cosm_push">Cosm Push</string>
+    <string name="cosm_pull">Cosm Pull</string>
+    <string name="cosm_web">Cosm Web</string>
+    <string name="cloud_services">Cloud Services</string>
+    <string name="preferences">Preferences</string>
+    <string name="ruby_dark_style">Ruby Dark Style</string>
+    <string name="silver_bright_style">Silver Bright Style</string>
+    <string name="geolocation">Geolocation</string>
 
 </resources>

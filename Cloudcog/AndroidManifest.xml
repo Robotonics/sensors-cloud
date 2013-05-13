@@ -6,7 +6,7 @@
     android:versionName="v.1.2 Beta" >
 
     <uses-sdk
-        android:minSdkVersion="16"
+        android:minSdkVersion="13"
         android:targetSdkVersion="17" />
     <!-- Permisson list begin -->
     <uses-feature
@@ -166,15 +166,13 @@
         <activity android:name="com.sorin.cloudcog.geolocation.MapRouteActivity" >
         </activity>
         <activity
-            android:name="com.sorin.cloudcog.car.view.CarMainFragmentActivitySilver"
+            android:name="com.sorin.cloudcog.car.obd2.RubyBluetoothChatActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.sorin.cloudcog.car.view.CarMainFragmentActivityRuby"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.sorin.cloudcog.car.obd2.BluetoothChatActivity"
+            android:name="com.sorin.cloudcog.car.obd2.SilverBluetoothChatActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >

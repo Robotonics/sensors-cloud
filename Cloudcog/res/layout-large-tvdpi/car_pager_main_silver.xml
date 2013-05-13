@@ -58,7 +58,8 @@
                 android:layout_height="20dp"
                 android:background="#FFFFFF"
                 android:text="@string/blank"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#585858" />
         </LinearLayout>
 
         <LinearLayout
@@ -84,7 +85,8 @@
                 android:layout_height="20dp"
                 android:background="#FFFFFF"
                 android:text="@string/blank"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#585858" />
         </LinearLayout>
     </LinearLayout>
 
@@ -98,7 +100,7 @@
             android:layout_height="wrap_content"
             android:text="@string/getdata"
             android:textColor="#045FB4"
-            android:textSize="35sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <Button

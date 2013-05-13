@@ -18,8 +18,7 @@ import android.widget.Toast;
 
 import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
 import com.sorin.cloudcog.arduino.ArduinoGraphActivity;
-import com.sorin.cloudcog.car.obd2.BluetoothChatActivity;
-import com.sorin.cloudcog.car.view.CarMainFragmentActivitySilver;
+import com.sorin.cloudcog.car.obd2.SilverBluetoothChatActivity;
 import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
 import com.sorin.cloudcog.geolocation.MapRouteActivity;
@@ -185,7 +184,7 @@ public class CloudcogMainActivity extends Activity {
 					@Override
 					public void run() {
 						Intent intent = new Intent(CloudcogMainActivity.this,
-								BluetoothChatActivity.class);
+								SilverBluetoothChatActivity.class);
 
 						startActivity(intent);
 

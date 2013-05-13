@@ -30,8 +30,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="74dp"
+            android:layout_marginTop="54dp"
             android:src="@drawable/car_ob2_arrow_small" />
+
     </RelativeLayout>
 
 </RelativeLayout>

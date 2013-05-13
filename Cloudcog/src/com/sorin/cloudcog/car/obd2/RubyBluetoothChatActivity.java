@@ -51,7 +51,7 @@ import android.widget.ToggleButton;
 import com.sorin.cloudcog.R;
 import com.sorin.cloudcog.ShakeDetectorActivity;
 import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
-import com.sorin.cloudcog.car.view.CarMainFragmentActivityRuby;
+import com.sorin.cloudcog.car.view.CarTabFragmentHandlerRuby;
 import com.sorin.cloudcog.car.view.CarTabFragmentHandlerSilver;
 import com.sorin.cloudcog.cosmpull.Login;
 import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
@@ -65,11 +65,11 @@ import com.viewpagerindicator.TitlePageIndicator;
  * @param <ImageView>
  */
 @SuppressLint("HandlerLeak")
-public class BluetoothChatActivity<ImageView> extends FragmentActivity {
+public class RubyBluetoothChatActivity<ImageView> extends FragmentActivity {
 	// fragment management
-	CarTabFragmentHandlerSilver mSilverAdapter;
-	ViewPager mSilverPager;
-	PageIndicator mSilverIndicator;
+	CarTabFragmentHandlerRuby mRubyAdapter;
+	ViewPager mRubyPager;
+	PageIndicator mRubyIndicator;
 	// The following are used for the shake detection
 	private SensorManager mSensorManager;
 	private Sensor mAccelerometer;
@@ -117,17 +117,17 @@ public class BluetoothChatActivity<ImageView> extends FragmentActivity {
 			Log.e(TAG, "+++ ON CREATE +++");
 
 		// Set up the window layout
-		setContentView(R.layout.car_pager_main_silver);
+		setContentView(R.layout.car_pager_main_ruby);
 		// toast message at begining of activity start
-		Toast.makeText(this, "Silver Light style OBD2 data console",
+		Toast.makeText(this, "Ruby Red Style OBD2 data console",
 				Toast.LENGTH_SHORT).show();
-		mSilverAdapter = new CarTabFragmentHandlerSilver(
+		mRubyAdapter = new CarTabFragmentHandlerRuby(
 				getSupportFragmentManager());
-		mSilverPager = (ViewPager) findViewById(R.id.pager_silver);
-		mSilverPager.setAdapter(mSilverAdapter);
+		mRubyPager = (ViewPager) findViewById(R.id.pager_ruby);
+		mRubyPager.setAdapter(mRubyAdapter);
 
-		mSilverIndicator = (TitlePageIndicator) findViewById(R.id.indicator_silver);
-		mSilverIndicator.setViewPager(mSilverPager);
+		mRubyIndicator = (TitlePageIndicator) findViewById(R.id.indicator_ruby);
+		mRubyIndicator.setViewPager(mRubyPager);
 
 		// When shacked it will return to main activity initialization
 		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -139,7 +139,7 @@ public class BluetoothChatActivity<ImageView> extends FragmentActivity {
 			@Override
 			public void onShake(int count) {
 
-				BluetoothChatActivity.this.finish();
+				RubyBluetoothChatActivity.this.finish();
 
 			}
 		});
@@ -980,7 +980,7 @@ public class BluetoothChatActivity<ImageView> extends FragmentActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.car_silver_menu, menu);
+		inflater.inflate(R.menu.car_ruby_menu, menu);
 		return true;
 	}
 
@@ -1013,12 +1013,13 @@ public class BluetoothChatActivity<ImageView> extends FragmentActivity {
 			startActivity(new Intent(this, MapRouteActivity.class));
 
 			break;
-		// starts the ruby red gauges main fragment activity
-		case R.id.action_ruby_gauges:
-			Intent rubyIntent = new Intent(this,
-					CarMainFragmentActivityRuby.class);
+		// starts the other fragment activity and finishes this one removing the
+		// top stack objects
+		case R.id.action_silver_gauges:
+			Intent rubyIntent = new Intent(RubyBluetoothChatActivity.this,
+					SilverBluetoothChatActivity.class);
 			rubyIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			BluetoothChatActivity.this.finish();
+			RubyBluetoothChatActivity.this.finish();
 			startActivity(rubyIntent);
 
 			break;
@@ -1077,10 +1078,10 @@ public class BluetoothChatActivity<ImageView> extends FragmentActivity {
 
 		case R.id.action_cosm_pull:
 
-			Intent mainIntent = new Intent(BluetoothChatActivity.this,
+			Intent mainIntent = new Intent(RubyBluetoothChatActivity.this,
 					Login.class);
 			mainIntent.putExtra("flag", "true");
-			BluetoothChatActivity.this.startActivity(mainIntent);
+			RubyBluetoothChatActivity.this.startActivity(mainIntent);
 
 			return true;
 		default:

@@ -52,9 +52,9 @@ import com.sorin.cloudcog.R;
 import com.sorin.cloudcog.ShakeDetectorActivity;
 import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
 import com.sorin.cloudcog.car.view.CarTabFragmentHandlerSilver;
-import com.sorin.cloudcog.cosmpull.Login;
-import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
 import com.sorin.cloudcog.geolocation.MapRouteActivity;
+import com.sorin.cloudcog.xivelypull.Login;
+import com.sorin.cloudcog.xivelypush.XivelyAndroidResourcesActivity;
 import com.viewpagerindicator.PageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
 
@@ -1064,15 +1064,17 @@ public class SilverBluetoothChatActivity<ImageView> extends FragmentActivity {
 			break;
 		case R.id.action_cosm_web:
 			Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-					Uri.parse("http://www.cosm.com"));
+					Uri.parse("http://www.xively.com"));
 			startActivity(browserIntent);
-			Toast.makeText(this, "Access your personal Cosm account",
+			Toast.makeText(
+					this,
+					"Access your personal Xively account.\n Xively was formerly known as Cosm.",
 					Toast.LENGTH_SHORT).show();
 
 			break;
 
 		case R.id.action_cosm_push:
-			startActivity(new Intent(this, CosmAndroidResourcesActivity.class));
+			startActivity(new Intent(this, XivelyAndroidResourcesActivity.class));
 
 			break;
 

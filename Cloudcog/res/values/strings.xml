@@ -788,7 +788,7 @@
     <string name="connections_handling">Connections Handling</string>
     <string name="cosm_push">Cosm Push</string>
     <string name="cosm_pull">Cosm Pull</string>
-    <string name="cosm_web">Cosm Web</string>
+    <string name="xively_web_link">Xively Weblink</string>
     <string name="cloud_services">Cloud Services</string>
     <string name="preferences">Preferences</string>
     <string name="ruby_dark_style">Ruby Dark Style</string>

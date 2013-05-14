@@ -9,15 +9,15 @@
         <menu>
             <item
                 android:id="@+id/action_cosm_web"
-                android:icon="@drawable/action_cosm_web"
-                android:title="@string/cosm_web"/>
+                android:icon="@drawable/action_xively_weblink"
+                android:title="@string/xively_web_link"/>
             <item
                 android:id="@+id/action_cosm_pull"
-                android:icon="@drawable/action_cosm_pull"
+                android:icon="@drawable/action_xively_pull"
                 android:title="@string/cosm_pull"/>
             <item
                 android:id="@+id/action_cosm_push"
-                android:icon="@drawable/action_cosm_push"
+                android:icon="@drawable/action_xively_push"
                 android:title="@string/cosm_push"/>
         </menu>
     </item>

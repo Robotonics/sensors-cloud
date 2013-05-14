@@ -238,7 +238,7 @@ public class CurrentInfoFragment extends Fragment {
 			break;
 		case R.id.action_cosm_web:
 			Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-					Uri.parse("http://www.cosm.com"));
+					Uri.parse("http://www.xively.com"));
 			startActivity(browserIntent);
 
 			break;

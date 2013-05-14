@@ -39,9 +39,9 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import com.sorin.cloudcog.R;
 import com.sorin.cloudcog.ShakeDetectorActivity;
 import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
-import com.sorin.cloudcog.cosmpull.CustomOverlay;
-import com.sorin.cloudcog.cosmpull.Login;
-import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
+import com.sorin.cloudcog.xivelypull.CustomOverlay;
+import com.sorin.cloudcog.xivelypull.Login;
+import com.sorin.cloudcog.xivelypush.XivelyAndroidResourcesActivity;
 
 public class MapRouteActivity extends FragmentActivity implements
 		LocationListener {
@@ -481,7 +481,7 @@ public class MapRouteActivity extends FragmentActivity implements
 			break;
 
 		case R.id.action_cosm_push:
-			startActivity(new Intent(this, CosmAndroidResourcesActivity.class));
+			startActivity(new Intent(this, XivelyAndroidResourcesActivity.class));
 
 			break;
 

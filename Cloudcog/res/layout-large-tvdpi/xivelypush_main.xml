@@ -1,0 +1,144 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_main"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".XivelyAndroidResourcesActivity" >
+
+    <LinearLayout
+        android:id="@+id/widget31"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/widget32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5px"
+            android:text="Feed ID:"
+            android:textColor="#F8F9FB"
+            android:textSize="22sp"
+            android:textStyle="bold" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/widget33"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:phoneNumber="true"
+            android:textColorHint="#F8F9FB"
+            android:textSize="18sp" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/widget34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5px"
+            android:text="Cosm API Key:"
+            android:textColor="#F8F9FB"
+            android:textSize="22sp"
+            android:textStyle="bold" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/widget35"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp" >
+        </EditText>
+
+        <Button
+            android:id="@+id/widget45"
+            android:layout_width="166dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.89"
+            android:gravity="left|center_horizontal|fill"
+            android:text="Scan Qr Code"
+            android:textColor="#FAFAFA"
+            android:textSize="20sp"
+            android:textStyle="bold" >
+        </Button>
+
+        <Spinner
+            android:id="@+id/widget42"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </Spinner>
+
+        <CheckBox
+            android:id="@+id/widget37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="CPU"
+            android:textColor="#FAFAFA"
+            android:textSize="20sp"
+            android:textStyle="bold" >
+        </CheckBox>
+
+        <CheckBox
+            android:id="@+id/widget38"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Free Memory"
+            android:textColor="#FAFAFA"
+            android:textSize="20sp"
+            android:textStyle="bold" >
+        </CheckBox>
+
+        <CheckBox
+            android:id="@+id/widget39"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Data"
+            android:textColor="#FAFAFA"
+            android:textSize="20sp"
+            android:textStyle="bold" >
+        </CheckBox>
+
+        <CheckBox
+            android:id="@+id/widget40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Battery Level"
+            android:textColor="#FAFAFA"
+            android:textSize="20sp"
+            android:textStyle="bold" >
+        </CheckBox>
+
+        <Button
+            android:id="@+id/widget43"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center|left|center_horizontal"
+            android:text="Turn On"
+            android:textColor="#FAFAFA"
+            android:textSize="20sp"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:id="@+id/widget44"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center|fill_horizontal"
+            android:text="Save"
+            android:textColor="#FAFAFA"
+            android:textSize="20sp"
+            android:textStyle="bold" >
+        </Button>
+    </LinearLayout>
+
+</ScrollView>

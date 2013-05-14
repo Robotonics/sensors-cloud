@@ -114,7 +114,7 @@
 
         <!-- Phone Battery activities end -->
 
-        <activity android:name="com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity" >
+        <activity android:name="com.sorin.cloudcog.xivelypush.XivelyAndroidResourcesActivity" >
         </activity>
         <activity android:name="com.sorin.cloudcog.arduino.ArduinoGraphActivity" >
         </activity>
@@ -122,19 +122,19 @@
         </activity>
         <!-- Cosm Pull activities begin -->
         <activity
-            android:name="com.sorin.cloudcog.cosmpull.main"
+            android:name="com.sorin.cloudcog.xivelypull.main"
             android:label="@string/app_name" >
             <intent-filter>
             </intent-filter>
         </activity>
         <activity
-            android:name="com.sorin.cloudcog.cosmpull.Login"
+            android:name="com.sorin.cloudcog.xivelypull.Login"
             android:label="@string/app_name" >
             <intent-filter>
             </intent-filter>
         </activity>
         <activity
-            android:name="com.sorin.cloudcog.cosmpull.FeedData"
+            android:name="com.sorin.cloudcog.xivelypull.FeedData"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
@@ -142,19 +142,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.sorin.cloudcog.cosmpull.LocationActivity"
+            android:name="com.sorin.cloudcog.xivelypull.LocationActivity"
             android:label="@string/app_name" >
             <intent-filter>
             </intent-filter>
         </activity>
         <activity
-            android:name="com.sorin.cloudcog.cosmpull.Map"
+            android:name="com.sorin.cloudcog.xivelypull.Map"
             android:label="@string/app_name" >
             <intent-filter>
             </intent-filter>
         </activity>
         <activity
-            android:name="com.sorin.cloudcog.cosmpull.History"
+            android:name="com.sorin.cloudcog.xivelypull.History"
             android:label="@string/app_name" >
             <intent-filter>
             </intent-filter>
@@ -199,7 +199,7 @@
 
         <!-- cosmpush background service begin -->
         <service
-            android:name="com.sorin.cloudcog.cosmpush.Background"
+            android:name="com.sorin.cloudcog.xivelypush.Background"
             android:enabled="true" >
             <intent-filter>
                 <action android:name="com.sorin.cloudcog.cosmpush.Background" />

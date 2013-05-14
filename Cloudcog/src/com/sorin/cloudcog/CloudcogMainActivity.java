@@ -19,12 +19,12 @@ import android.widget.Toast;
 import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
 import com.sorin.cloudcog.arduino.ArduinoGraphActivity;
 import com.sorin.cloudcog.car.obd2.SilverBluetoothChatActivity;
-import com.sorin.cloudcog.cosmpull.Login;
-import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
 import com.sorin.cloudcog.geolocation.MapRouteActivity;
 import com.sorin.cloudcog.ioio.IOIOGraphActivity;
 import com.sorin.cloudcog.mqtt.push.MqttActivity;
 import com.sorin.cloudcog.phone.batterymeter.BatteryInfoActivity;
+import com.sorin.cloudcog.xivelypull.Login;
+import com.sorin.cloudcog.xivelypush.XivelyAndroidResourcesActivity;
 
 public class CloudcogMainActivity extends Activity {
 	private ImageButton btnCarSensors;
@@ -127,7 +127,7 @@ public class CloudcogMainActivity extends Activity {
 					@Override
 					public void run() {
 						Intent intent = new Intent(CloudcogMainActivity.this,
-								CosmAndroidResourcesActivity.class);
+								XivelyAndroidResourcesActivity.class);
 						startActivity(intent);
 					}
 				}, 430);
@@ -315,9 +315,11 @@ public class CloudcogMainActivity extends Activity {
 			break;
 		case R.id.action_cosm_web:
 			Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-					Uri.parse("http://www.cosm.com"));
+					Uri.parse("http://www.xively.com"));
 			startActivity(browserIntent);
-			Toast.makeText(this, "Access your personal Cosm account",
+			Toast.makeText(
+					this,
+					"Access your personal Xively account.\n Xively was formerly known as Cosm.",
 					Toast.LENGTH_SHORT).show();
 
 			break;

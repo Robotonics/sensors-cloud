@@ -17,7 +17,7 @@
         android:title="@string/menu_close"/>
     <item
         android:id="@+id/action_cosm_web"
-        android:icon="@drawable/action_cosm_web"
+        android:icon="@drawable/action_xively_weblink"
         android:showAsAction="always"
         android:title="Cosm Web"/>
     <item

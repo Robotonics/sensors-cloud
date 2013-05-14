@@ -38,7 +38,7 @@
                 android:id="@+id/action_location"
                 android:icon="@drawable/action_location_settings"
                 android:showAsAction="always"
-                android:title="Location"/>
+                android:title="@string/location"/>
             <item
                 android:id="@+id/action_bluetooth"
                 android:icon="@drawable/action_bluetooth"

@@ -11,6 +11,6 @@ import com.sorin.cloudcog.R;
 public class CoolantFragmentRuby extends Fragment {
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-		return inflater.inflate(R.layout.car_intaketemperature_ruby, null);
+		return inflater.inflate(R.layout.car_coolant_ruby, null);
 	}
 }

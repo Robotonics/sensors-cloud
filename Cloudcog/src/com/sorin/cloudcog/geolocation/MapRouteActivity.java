@@ -12,7 +12,6 @@ import java.util.List;
 
 import org.json.JSONObject;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
@@ -29,8 +28,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
@@ -58,6 +55,9 @@ public class MapRouteActivity extends FragmentActivity implements
 	private SensorManager mSensorManager;
 	private Sensor mAccelerometer;
 	private ShakeDetectorActivity mShakeDetector;
+	// coordinates
+	private static final long MIN_TIME = 400;
+	private static final float MIN_DISTANCE = 1000;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -83,124 +83,117 @@ public class MapRouteActivity extends FragmentActivity implements
 			}
 
 		});
-		int status = GooglePlayServicesUtil
-				.isGooglePlayServicesAvailable(getBaseContext());
 
-		// Showing status
-		if (status != ConnectionResult.SUCCESS) { // Google Play Services are
-			// not available
+		if (map == null) {
+			// Try to obtain the map from the SupportMapFragment.
+			map = ((SupportMapFragment) getSupportFragmentManager()
+					.findFragmentById(R.id.map)).getMap();
+			// Check if we were successful in obtaining the map.
+			if (map != null) {
+				map.setMyLocationEnabled(true);
 
-			int requestCode = 10;
-			Dialog dialog = GooglePlayServicesUtil.getErrorDialog(status, this,
-					requestCode);
-			dialog.show();
-
-		} else { // Google Play Services are available
-
-			// Getting reference to the SupportMapFragment of activity_main.xml
-			SupportMapFragment fm = (SupportMapFragment) getSupportFragmentManager()
-					.findFragmentById(R.id.map);
-
-			// Getting GoogleMap object from the fragment
-			map = fm.getMap();
-
-			// Enabling MyLocation Layer of Google Map
-			map.setMyLocationEnabled(true);
-
-			// Getting LocationManager object from System Service
-			// LOCATION_SERVICE
-			locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-
-			// Creating a criteria object to retrieve provider
-			Criteria criteria = new Criteria();
-
-			// Getting the name of the best provider
-			String provider = locationManager.getBestProvider(criteria, true);
-
-			// Getting Current Location
-			android.location.Location location = locationManager
-					.getLastKnownLocation(provider);
-
-			if (location != null) {
-				onLocationChanged(location);
 			}
-			locationManager.requestLocationUpdates(provider, 20000, 0, this);
-			/* implementing augmented geolocation functionality */
-
-			// FragmentManager myFragmentManager = getSupportFragmentManager();
-			// SupportMapFragment mySupportMapFragment = (SupportMapFragment)
-			// myFragmentManager
-			// .findFragmentById(R.id.map);
-			// googleMap = mySupportMapFragment.getMap();
-			//
-			// googleMap.setOnMapClickListener(this);
-			// Initializing
-			markerPoints = new ArrayList<LatLng>();
-
-			// Getting reference to SupportMapFragment of the activity_main
-			SupportMapFragment fragment = (SupportMapFragment) getSupportFragmentManager()
-					.findFragmentById(R.id.map);
-
-			// Getting Map for the SupportMapFragment
-			map = fm.getMap();
-
-			// Enable MyLocation Button in the Map
-			map.setMyLocationEnabled(true);
-
-			// Setting onclick event listener for the map
-			map.setOnMapClickListener(new OnMapClickListener() {
-
-				@Override
-				public void onMapClick(LatLng point) {
-
-					// Already two locations
-					if (markerPoints.size() > 1) {
-						markerPoints.clear();
-						map.clear();
-					}
-
-					// Adding new item to the ArrayList
-					markerPoints.add(point);
-
-					// Creating MarkerOptions
-					MarkerOptions options = new MarkerOptions();
-
-					// Setting the position of the marker
-					options.position(point);
-
-					/**
-					 * For the start location, the color of marker is GREEN and
-					 * for the end location, the color of marker is RED.
-					 */
-					if (markerPoints.size() == 1) {
-						options.icon(BitmapDescriptorFactory
-								.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-					} else if (markerPoints.size() == 2) {
-						options.icon(BitmapDescriptorFactory
-								.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-					}
-
-					// Add new marker to the Google Map Android API V2
-					map.addMarker(options);
-
-					// Checks, whether start and end locations are captured
-	if (markerPoints.size() >= 2) {
-						LatLng origin = markerPoints.get(0);
-						LatLng dest = markerPoints.get(1);
-
-						// Getting URL to the Google Directions API
-						String url = getDirectionsUrl(origin, dest);
-
-						DownloadTask downloadTask = new DownloadTask();
-
-						// Start downloading json data from Google Directions
-						// API
-						downloadTask.execute(url);
-					}
-
-				}
-			});
 		}
+
+		locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		locationManager.requestLocationUpdates(
+				LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this);
+
+		// Getting reference to the SupportMapFragment of activity_main.xml
+		SupportMapFragment fm = (SupportMapFragment) getSupportFragmentManager()
+				.findFragmentById(R.id.map);
+
+		// Getting GoogleMap object from the fragment
+		map = fm.getMap();
+
+		// Enabling MyLocation Layer of Google Map
+		map.setMyLocationEnabled(true);
+
+		// Getting LocationManager object from System Service
+		// LOCATION_SERVICE
+		locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+		// Creating a criteria object to retrieve provider
+		Criteria criteria = new Criteria();
+
+		// Getting the name of the best provider
+		String provider = locationManager.getBestProvider(criteria, true);
+
+		// Getting Current Location
+		android.location.Location location = locationManager
+				.getLastKnownLocation(provider);
+
+		if (location != null) {
+			onLocationChanged(location);
+		}
+		locationManager.requestLocationUpdates(provider, 2000, 1000, this);
+
+		// Initializing
+		markerPoints = new ArrayList<LatLng>();
+
+		// Getting reference to SupportMapFragment of the activity_main
+		SupportMapFragment fragment = (SupportMapFragment) getSupportFragmentManager()
+				.findFragmentById(R.id.map);
+
+		// Getting Map for the SupportMapFragment
+		map = fm.getMap();
+
+		// Enable MyLocation Button in the Map
+		map.setMyLocationEnabled(true);
+
+		// Setting onclick event listener for the map
+		map.setOnMapClickListener(new OnMapClickListener() {
+
+			@Override
+			public void onMapClick(LatLng point) {
+
+				// Already two locations
+				if (markerPoints.size() > 1) {
+					markerPoints.clear();
+					map.clear();
+				}
+
+				// Adding new item to the ArrayList
+				markerPoints.add(point);
+
+				// Creating MarkerOptions
+				MarkerOptions options = new MarkerOptions();
+
+				// Setting the position of the marker
+				options.position(point);
+
+				/**
+				 * For the start location, the color of marker is GREEN and for
+				 * the end location, the color of marker is RED.
+				 */
+				if (markerPoints.size() == 1) {
+					options.icon(BitmapDescriptorFactory
+							.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+				} else if (markerPoints.size() == 2) {
+					options.icon(BitmapDescriptorFactory
+							.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+				}
+
+				// Add new marker to the Google Map Android API V2
+				map.addMarker(options);
+
+				// Checks, whether start and end locations are captured
+				if (markerPoints.size() >= 2) {
+					LatLng origin = markerPoints.get(0);
+					LatLng dest = markerPoints.get(1);
+
+					// Getting URL to the Google Directions API
+					String url = getDirectionsUrl(origin, dest);
+
+					DownloadTask downloadTask = new DownloadTask();
+
+					// Start downloading json data from Google Directions
+					// API
+					downloadTask.execute(url);
+				}
+
+			}
+		});
 	}
 
 	private String getDirectionsUrl(LatLng origin, LatLng dest) {

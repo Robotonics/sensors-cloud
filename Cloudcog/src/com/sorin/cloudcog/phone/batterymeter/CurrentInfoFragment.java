@@ -177,15 +177,6 @@ public class CurrentInfoFragment extends Fragment {
 		bl.recycle();
 	}
 
-	/*
-	 * private void restartIfLanguageChanged() { String curLanguage =
-	 * activity.settings.getString(SettingsActivity.KEY_LANGUAGE_OVERRIDE,
-	 * "default"); if (curLanguage.equals(oldLanguage)) return;
-	 * 
-	 * Str.overrideLanguage(activity.res, getWindowManager(), curLanguage);
-	 * mStartActivity(BatteryInfoActivity.class); activity.finish(); }
-	 */
-
 	@Override
 	public void onResume() {
 		super.onResume();
@@ -193,11 +184,6 @@ public class CurrentInfoFragment extends Fragment {
 		if (serviceMessenger != null)
 			sendServiceMessage(BatteryInfoService.RemoteConnection.SERVICE_REGISTER_CLIENT);
 
-		Intent bc_intent = activity.context.registerReceiver(null,
-				batteryChangedFilter);
-		info.load(bc_intent);
-		info.load(activity.sp_store);
-		handleUpdatedBatteryInfo(info);
 	}
 
 	@Override

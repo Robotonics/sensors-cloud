@@ -14,13 +14,14 @@
 
 package com.sorin.cloudcog.phone.batterymeter;
 
+import java.util.Locale;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -29,17 +30,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.sorin.cloudcog.CloudcogMainActivity;
 import com.sorin.cloudcog.R;
 import com.sorin.cloudcog.ShakeDetectorActivity;
 import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
-import com.sorin.cloudcog.cosmpull.Login;
-import com.sorin.cloudcog.cosmpush.CosmAndroidResourcesActivity;
-import com.sorin.cloudcog.geolocation.MapRouteActivity;
 
 public class BatteryInfoActivity extends FragmentActivity {
 	private BatteryInfoPagerAdapter pagerAdapter;
@@ -98,6 +93,17 @@ public class BatteryInfoActivity extends FragmentActivity {
 			}
 		});
 		// ShakeDetector method end
+	}
+
+	// returns to main activity and cleares top activity stack
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		Intent backIntent = new Intent(BatteryInfoActivity.this,
+				CloudcogMainActivity.class);
+		backIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		startActivity(backIntent);
+		this.finish();
 	}
 
 	// onResume and onPause are meant for shake events
@@ -162,9 +168,11 @@ public class BatteryInfoActivity extends FragmentActivity {
 
 		public CharSequence getPageTitle(int position) {
 			if (position == 1) {
-				return res.getString(R.string.tab_current_info).toUpperCase();
+				return res.getString(R.string.tab_current_info).toUpperCase(
+						Locale.getDefault());
 			} else {
-				return res.getString(R.string.tab_history).toUpperCase();
+				return res.getString(R.string.tab_history).toUpperCase(
+						Locale.getDefault());
 
 			}
 

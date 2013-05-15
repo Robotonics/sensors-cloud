@@ -794,5 +794,6 @@
     <string name="ruby_dark_style">Ruby Dark Style</string>
     <string name="silver_bright_style">Silver Bright Style</string>
     <string name="geolocation">Geolocation</string>
+    <string name="pull_data_from_xively">Pull data from Xively</string>
 
 </resources>

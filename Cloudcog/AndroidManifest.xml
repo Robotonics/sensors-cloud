@@ -59,7 +59,10 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/CloudcogTheme" >
-
+        <activity android:name="com.sorin.cloudcog.geolocation.PolyMap" >
+        </activity>
+        <activity android:name="com.sorin.cloudcog.geolocation.PhoneMainFragmentActivity" >
+        </activity>
         <!-- Phone Battery activities start -->
         <activity
             android:name="com.sorin.cloudcog.phone.batterymeter.BatteryInfoActivity"

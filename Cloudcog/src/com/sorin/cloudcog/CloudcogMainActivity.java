@@ -20,6 +20,8 @@ import com.sorin.cloudcog.ShakeDetectorActivity.OnShakeListener;
 import com.sorin.cloudcog.arduino.ArduinoGraphActivity;
 import com.sorin.cloudcog.car.obd2.SilverBluetoothChatActivity;
 import com.sorin.cloudcog.geolocation.MapRouteActivity;
+import com.sorin.cloudcog.geolocation.PhoneMainFragmentActivity;
+import com.sorin.cloudcog.geolocation.PolyMap;
 import com.sorin.cloudcog.ioio.IOIOGraphActivity;
 import com.sorin.cloudcog.mqtt.push.MqttActivity;
 import com.sorin.cloudcog.phone.batterymeter.BatteryInfoActivity;

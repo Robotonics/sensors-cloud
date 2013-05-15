@@ -18,7 +18,7 @@ public class CarTabFragmentHandlerSilver extends FragmentPagerAdapter {
 	}
 
 	public Fragment getItem(int position) {
-		Fragment fragmentSilver = new RPMFragmentSilver();
+		Fragment fragmentSilver = new MapFragmentSilver();
 		switch (position) {
 		case 0:
 			fragmentSilver = new RPMFragmentSilver();

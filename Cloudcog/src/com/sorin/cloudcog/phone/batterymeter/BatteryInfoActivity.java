@@ -73,12 +73,10 @@ public class BatteryInfoActivity extends FragmentActivity {
 		pagerAdapter = new BatteryInfoPagerAdapter(getSupportFragmentManager());
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		viewPager.setAdapter(pagerAdapter);
-
+		viewPager.setCurrentItem(1);
 		PagerTabStrip tabStrip = (PagerTabStrip) findViewById(R.id.pager_tab_strip);
 		tabStrip.setTabIndicatorColor(0x33b5e5);
 
-		viewPager.setCurrentItem(1);
-		// ShakeDetector initialization
 		mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 		mAccelerometer = mSensorManager
 				.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);

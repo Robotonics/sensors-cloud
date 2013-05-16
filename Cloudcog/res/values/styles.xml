@@ -20,6 +20,12 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="PagerTabStripText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#a4c639</item>
+    </style>
+
     <style name="apptext">
         <item name="android:textSize">12sp</item>
         <item name="android:layout_width">match_parent</item>

@@ -61,7 +61,7 @@
         android:theme="@style/CloudcogTheme" >
         <activity android:name="com.sorin.cloudcog.geolocation.PolyMap" >
         </activity>
-        <activity android:name="com.sorin.cloudcog.geolocation.PhoneMainFragmentActivity" >
+        <activity android:name="com.sorin.cloudcog.geolocation.GeolocationFragmentActivity" >
         </activity>
         <!-- Phone Battery activities start -->
         <activity
